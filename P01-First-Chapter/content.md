@@ -13,13 +13,11 @@ As the only iOS developer capable for such an important task, you will have the 
 
 
 # Why Is This Important
-Programmatic Swift iOS applications are an industry standard and tabbar navigation is 
+Programmatic Swift iOS applications are an industry standard that allow for more speed, power, and control in the mobile development process. In hand with programmatic iOS development, tab bars are a handy tool that allows users to navigate your app. 
 
+> [action]
+> Can you think of 3 different mobile apps that use tab bars as their source for in-app navigation? What are some things that all those tab bars have in common? Are there any differences?
 
-Use this section to concisely covey to students why this topic is important for them to learn. This should be tied to industry examples, or fundamentals of the course. Try to keep this brief, and possibly include an action block asking them to think of examples they see of this in industry.
-
->[action]
-> Think of popular apps people use on the day-to-day, what about the tabbar makes the 
 
 # Prerequisites
 
@@ -27,9 +25,8 @@ This section should outline any prerequisites for understanding the material and
 
 Resources can include (but are not limited to):
 
-- Class slides/materials
-- Previous tutorials
-- Outside references (articles/tutorials not from Make School)
+- Completion of MOB 1.1 
+- Strong understanding of Swift 
 
 # Learning Outcomes
 
@@ -41,13 +38,12 @@ By the end of this tutorial, you should be able to...
 3. Create tableviews and collectionviews 
 4. Implement custom fonts and custom tabbar icons 
 5. Have a better understanding of stacks
+```
 
 >[action]
 > Take a moment to write down these learning outcomes and reflect on them. Make sure that as you progress through the tutorial that you're furthering your understanding, and that by the end, you have completed all of the outcomes.
-```
 
 # User Stories
-
 User stories is a tool used in agile software development to capture a feature or task from the users perspective. 
 
 ```
