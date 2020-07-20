@@ -11,6 +11,8 @@ As the only iOS developer capable for such an important task, you will have the 
 
 **screenshot or video of the final product should be shown here as well, so that students can get a preview of the end product that they'll be building**
 
+<img src="assets/history-screen.png" width="300">  <img src="assets/new-screen.png" width="300"> <img src="assets/order-list.png" width="300">
+
 
 # Why Is This Important
 Programmatic Swift iOS applications are an industry standard that allow for more speed, power, and control in the mobile development process. In hand with programmatic iOS development, tab bars are a handy tool that allows users to navigate your app. 
@@ -47,11 +49,10 @@ By the end of this tutorial, you should be able to...
 User stories is a tool used in agile software development to capture a feature or task from the users perspective. 
 
 ```
-# User Stories
-
 1. As a buyer, I want to see available microbots so that I can purchase the one I need 
 2. As a buyer, I want to see previous orders of microbots so that I can remember which ones I like and do not like 
 3. As a buyer, I want to be able to favorite the microbots I like so that I can easily find them next time 
 ```
 
-
+# If You Get Stuck
+Getting stuck when coding (and debugging) is a natural part of the programming process. If you find yourself stuck on a problem or lost, pause for a moment and take a breath. Maybe take a walk. Then retrace your steps (in the tutorial, not the walk). Make sure you've follow each step of the tutorial. It's easy to make typos or to accidentally skip over important steps.
