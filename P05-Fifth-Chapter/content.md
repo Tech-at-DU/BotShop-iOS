@@ -10,7 +10,7 @@ Run the app again and make sure you’re still able to see the red screen. We wi
 
 # Creating Basic Past Order Page 
 
-Create a new swift file and name it ```PastOrderViewController```. Add ```PastOrderViewController``` and add ```viewDidLoad()``. Then let's set the background color as green.
+Create a new swift file and name it ```PastOrderViewController```. Add ```class PastOrderViewController``` and add ```viewDidLoad()```. Then let's set the background color as green.
 
 
 > [solution]
