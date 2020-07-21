@@ -9,26 +9,32 @@ It’s the year 3000 and the everyday person is now 75% machine and requires the
 
 As the only iOS developer capable for such an important task, you will have the best equipment and tools availble to you to create a 100% programmatic native iOS app using Swift and Xcode. 
 
-**screenshot or video of the final product should be shown here as well, so that students can get a preview of the end product that they'll be building**
-
-<img src="assets/history-screen.png" width="300">  <img src="assets/new-screen.png" width="300"> <img src="assets/order-list.png" width="300">
-
-
 # Why Is This Important
-Programmatic Swift iOS applications are an industry standard that allow for more speed, power, and control in the mobile development process. In hand with programmatic iOS development, tab bars are a handy tool that allows users to navigate your app. 
+Aside from saving billions of people by giving them access to the microbots they need; programmatic Swift iOS applications are an industry standard that allow for more speed, power, and control in the mobile development process. In hand with programmatic iOS development, tab bars are a handy tool that enable users to navigate apps. 
 
 > [action]
 > Can you think of 3 different mobile apps that use tab bars as their source for in-app navigation? What are some things that all those tab bars have in common? Are there any differences?
 
 
-# Prerequisites
+# Who Is This For? 
+iOS beginners who already have some experience with Xcode and are familiar with coding in Swift.
 
-This section should outline any prerequisites for understanding the material and link to resources for getting up to speed.
+**What You Should Already Know**
+
+You should know how to:
+
+- navigate your way around Xcode
+- differentiate between table views and collection views
+- organize your code using MVC
 
 Resources can include (but are not limited to):
 
 - Completion of MOB 1.1 
 - Strong understanding of Swift 
+
+**Estimated Completion Time:**
+
+4 hours
 
 # Learning Outcomes
 
@@ -45,6 +51,11 @@ By the end of this tutorial, you should be able to...
 >[action]
 > Take a moment to write down these learning outcomes and reflect on them. Make sure that as you progress through the tutorial that you're furthering your understanding, and that by the end, you have completed all of the outcomes.
 
+# What We're Building 
+At the end of this tutorial you will have built your own mobile shopping app! 
+
+<img src="assets/new-screen.png" width="300">  <img src="assets/history-screen.png" width="300"> <img src="assets/order-list-screen.png" width="300">
+
 # User Stories
 User stories is a tool used in agile software development to capture a feature or task from the users perspective. 
 
@@ -55,4 +66,4 @@ User stories is a tool used in agile software development to capture a feature o
 ```
 
 # If You Get Stuck
-Getting stuck when coding (and debugging) is a natural part of the programming process. If you find yourself stuck on a problem or lost, pause for a moment and take a breath. Maybe take a walk. Then retrace your steps (in the tutorial, not the walk). Make sure you've follow each step of the tutorial. It's easy to make typos or to accidentally skip over important steps.
+Getting stuck when coding (and debugging) is a natural part of the programming process. If you find yourself stuck on a problem or lost, feel free to take a break, get some water, take a walk, and come back with a fresh mind. Then retrace your steps in the tutorial. Make sure you've follow each step of the tutorial. It's easy to make typos or to accidentally skip over important steps.
