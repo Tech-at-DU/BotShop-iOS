@@ -1,7 +1,5 @@
-title: "Tutorial Template Title, max 56 characters"
-cover: cover.png
-solution_url: https://github.com/MakeSchool-Tutorials/Tutorial-Template/
+title: "Bot Shop"
+cover: botshop-cover.png
+solution_url: https://github.com/MakeSchool-Tutorials/Navigation-Tutorial-iOS
 teaser_text: |
-    Tell the user what they will learn!
-    This can be multi-line text.
-    150 characters max!
+    Learn to build an iOS shopping app programmatically 
