@@ -1,45 +1,118 @@
 ---
-title: "Understanding What We're Building"
-slug: ui-break-down
+title: "Getting Started with Xcode"
+slug: getting-started
 ---
 
-# Project Breakdown
-Before we jump into Xcode, let's take a closer look at what we’ll be building page by page.  
+In this section, we'll get introduced to our new Xcode project and start working on implementing our Bot Shop design. It may look pretty bare bones at first but we'll be following standards of agile development to get the job done! 
 
-## New Order Page 
-<img src="assets/new-screen.png" width="300">  
+**Agile development** is an approach to software development that continuously delivers working software. We'll dive deeper into this concept as we move forward with our project.
 
-The New Order page is made up of a collection view and shows the items that can be purchased. Each cell in the collection view is a custom cell that includes an image and label within a vertical stackview. 
+# Project Setup 
+In this section you are going to do some project setup in preparation for the rest of the tutorial.
 
-## Past Order Page
-<img src="assets/history-screen.png" width="300"> 
+# Create a New Xcode Project 
 
-The Past Order page is a table view that displays dates of orders made in the past. Each cell in the table view is a custom cell that includes an image and label within a horizontal stackview.
+Create a new Single View App. Check that the <em>Language</em> is set to ```Swift``` and the User Interface is set to ```Storyboard``` (you read that correctly, don't worry, you'll see how to remove it soon enough). We'll name the app ```Bot Shop``` but feel free to name it as you please.
 
-## Items List Page
-<img src="assets/order-list-screen.png" width="300">
+For now you do not need to check any of the boxes (Core Cata, ui tests, etc) for this tutorial 
 
-The Items List page is a table view that displays the individual items bought on a specific date. Users can get to this page by clicking on a table view cell from the Past Order page. The cells on this table view will not be clickable.
+<img src="assets/new-project.png">
 
-# Different Types of Navigation
+<img src="assets/new-project2.png">
 
-## Stack Navigation 
+# Import Resources for Project 
 
-<img src="assets/stack_navigation.png" width="300">
+Download the Bot Shop assets that have been created for you. Once the download has finished, unpack the zip file and drag it into the project tree on the lefthand side or <em>Project Navigator</em>. Make sure that you have Copy items if needed and Create Groups selected.
 
-The transition from the Past Order page to the Items List page illustrates a **stack navigation**. 
+<img src="assets/add_assets.png">
 
-By selecting an item in the view controller, it pushes a new view controller onscreen using an animation, thereby hiding the previous view controller. Tapping the back button in the navigation bar at the top of the interface removes the top view controller, thereby revealing the view controller underneath.
+# Remove Storyboard 
+Find the Main.storyboard file on your Project Navigator. Right click on the file and delete it. Make sure to click ```Move to Trash```. 
 
-## Tabbar 
+Now open the SceneDelegate.swift file on your Project Navigator.
 
- <img src="assets/tabbar.png" width="300">
+At the top of the class add ```var window: UIWindow?```
 
- The transition from New Order page to Past Order page illustrates navigation from thr tabbar. A user must click on a tabbar icon in order to navigate between pages. 
+Then locate: 
+```
+func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions)
+```
 
-Tab bar controller’s views are embedded (using the inherited view property) in the app window. The tab bar controller automatically selects that view controller and displays its contents, resizing them as needed to fit the tab bar interface. 
+Update the body of the function with: 
 
-For our project, we will have two icons on the tabbar but you can have at most is 5 icons displayed on the tabbar at a time. When you add a sixth you get the first four icons plus a <em>More</em> tab with the other two.
+```
+guard let windowScene = (scene as? UIWindowScene) else { return }
 
-> [action]
-> Can you think of 2 different kinds of scenarios where it might be better to use stack navigation over tabbar and vice versa? 
+window = UIWindow(frame: UIScreen.main.bounds)
+
+// Create an instance of the main view controller and a navigation controller
+let mainController = ViewController()
+let navigationController = UINavigationController(rootViewController: mainController)
+
+// Tell the window to load the main controller as it's root view
+window?.rootViewController = navigationController
+window?.makeKeyAndVisible()
+window?.windowScene = windowScene
+```
+
+Now go to the root page of your project, look for the **Deployment Info** section, find the **Main Interface** dropdown section.
+
+Highlight the text in the textfield that says **Main** and delete it. You should now have an empty field for Main Interface. 
+
+Lastly, lets go to your ```Info.plist``` file and press CTRL + F "Main" to reveal all instances. 
+
+Now remove any instances of Main that appears by clicking on the minus ( - ) symbol.
+
+Remember to always click ```Move to Trash``` when any instances from the project. 
+
+# Making Sure We're On Track 
+For testing purposes, let's open the ```ViewController.swift``` file and set the background color to something of your choosing.
+
+> [solution]
+> See if you can remember how to change the background color of the view off the top of your mind.
+>
+```
+view.backgroundColor = .red
+```
+Run your app now and you should see a red screen. If you do not then back track and make sure you have removed all instances of Main from your project. 
+
+If you see red, then congratulations! You're on your way to developing your first fully programmatic iOS mobile application.
+
+
+# Using Git/GitHub
+
+As you go through this tutorial, you will also be making commits after completing milestones. This is a requirement, you must make a commit whenever the tutorial prompts you. This not only further enforces best practices for software engineering, but also will help you more easily figure out where a bug originated from if you break your progress up into discrete, trackable chunks.
+
+When prompted to commit, you'll see a sample commit message. Feel free to use your own message, so long as it clearly and concisely covers the work done.
+
+Lastly, the commit prompts in this tutorial should be the minimum amount of times you commit. If you want to do more commits, breaking your chunks into even smaller chunks, that is totally fine!
+
+
+# Set Up Git/GitHub
+
+Set up your repo!
+
+>[action]
+> Make your first commit
+>
+\```
+$ git init
+
+$ git add .
+
+$ git commit -m 'project init'
+
+\```
+
+Now Go to GitHub and create a public repository called Bot-Shop, and now associate it as a remote for your local git project and then push to it.
+
+>[action]
+> Push it!
+>
+\```
+
+$ git remote add origin GITHUB-REPO-URL
+
+$ git push origin master -u
+
+\```
