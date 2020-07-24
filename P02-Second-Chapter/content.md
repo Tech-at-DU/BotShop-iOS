@@ -3,7 +3,7 @@ title: "Getting Started with Xcode"
 slug: getting-started
 ---
 
-In this section, we'll get introduced to our new Xcode project and start working on implementing our Bot Shop design. It may look pretty bare bones at first but we'll be following standards of agile development to get the job done! 
+In this section, we'll get introduced to our new Xcode project and start working on implementing our Bot Shop design. It may look pretty bare bones at first but we'll be following standards of agile development to get the job done!
 
 **Agile development** is an approach to software development that continuously delivers working software. We'll dive deeper into this concept as we move forward with our project.
 
@@ -14,7 +14,7 @@ In this section you are going to do some project setup in preparation for the re
 
 Create a new Single View App. Check that the <em>Language</em> is set to ```Swift``` and the User Interface is set to ```Storyboard``` (you read that correctly, don't worry, you'll see how to remove it soon enough). We'll name the app ```Bot Shop``` but feel free to name it as you please.
 
-For now you do not need to check any of the boxes (Core Cata, ui tests, etc) for this tutorial 
+For now you do not need to check any of the boxes like Core Data or UITests for this tutorial.
 
 <img src="assets/new-project.png">
 

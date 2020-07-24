@@ -1,6 +1,6 @@
 ---
-title: "Overview Of Botshop"
-slug: overview
+title: "Overview Of Bot Shop"
+slug: overview-of-bot-shop
 ---
 
 It’s the year 3000 and the everyday person is now 75% machine and requires the services of microbots for inner bodily maintenance. It’s your job to create an app that enables people to order the bots they need. 
