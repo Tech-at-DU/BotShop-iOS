@@ -17,7 +17,7 @@ Let's create a model for the past orders. `Cmd + N ` to create a new Swift file 
 
 Within the file, add: 
 ```
-struct Order{
+struct Order {
     var title: String
     var image: UIImage
 }
