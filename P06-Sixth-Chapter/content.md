@@ -1,106 +1,112 @@
 ---
-title: "Creating Tabbar"
-slug: create-tabbar
+title: Populating TableView and Creating Stack Navigation
+slug: populate-cells-with-stack-navigation
 ---
-# Creating Tabbar 
-Create a new swift file and name it ```TabBarController```. Add ```class TabBarController``` and add ```viewDidLoad()``. TabBarController will be of type UITabBarController and will conform to the UITabBarControllerDelegate protocol. 
 
-Your file should look like the following:
+In this section we will be building out another kind of navigation type on top of the tabbar navigation we already have built out. **Stack navigation** is something you're most likely already familliar with, it's what comes builtin with storyboard's Navigation Controller. To illustrate, let's take a look at this diagram. 
+
+<img src="assets/stack-nav.png">
+
+A navigation controller object manages its child view controllers using an ordered array, known as the **navigation stack**. The first view controller acts as the parent or root view controller to the subsequent view controllers. 
+
+What we'll be doing moving forward is setting our History page as the root controller in this stack navigation and then creating a Order List page that will be the child to the history page, meaning users will only be able to access it through the History page. 
+
+
+# Creating Order Model 
+Let's create a model for the past orders. `Cmd + N ` to create a new Swift file and name it `Order.swift`.
+
+Within the file, add: 
 ```
-import UIKit
- 
-class TabBarController: UITabBarController, UITabBarControllerDelegate{
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-}
-```
-Because we’re using a delegate you will want to implement the protocol by adding this into viewdidload: 
-
-```
-self.delegate = self
-```
-
-This sets default delegate functionality in your controller. Delegates in general are a design pattern that allows one object to send messages to another object when a specific event happens.
-
-Next we will set up the icons in the tabbar. We will need two buttons in order to navigate between our two pages. To do this, first we need to declare two variables.
-
-```
-var firstItemImageView: UIImageView!
-var secondItemImageView: UIImageView!
-```
-
-Then we want to create a function to set up the tab bar icons. This function takes the UIImageViews we have and adds them as subviews in the tab bar, placing our icons within it. 
-
-```
-func setupTabBarIcons(){
-    
-    let firstItemView = self.tabBar.subviews[0]
-    let secondItemView = self.tabBar.subviews[1]
-    
-    self.firstItemImageView = (firstItemView.subviews.first as! UIImageView)
-    self.firstItemImageView.contentMode = .center
-    
-    self.secondItemImageView = (secondItemView.subviews.first as! UIImageView)
-    self.secondItemImageView.contentMode = .center
+struct Order{
+    var title: String
+    var image: UIImage
 }
 ```
 
-Lastly we want to set up the viewcontrollers within the tabbar. 
+# Adding Some Style to the TableView
+Now let's head back to our `PastOrderViewController` file.
 
+If you run your app now, you will notice that there is not a lot of room in our tableview cell to display all the information we'd like to display. 
+
+In order to give us a bit more room to work with, let's increase the height of each tableview cell. Add this to the bottom of your extension. 
 ```
-func setupViewControllers(){       
-    
-    let newBoxVC = NewOrderViewController()
-    let navController1 = UINavigationController(rootViewController:newBoxVC)
-    newBoxVC.tabBarItem = UITabBarItem(title: "New", image: UIImage(named: "tab-box"), tag: 0)
-    
-    let pastBoxesVC = PastOrderViewController()
-    let navController2 = UINavigationController(rootViewController:pastBoxesVC)
-    pastBoxesVC.tabBarItem = UITabBarItem(title: "History", image: UIImage(named: "tab-history"), tag: 1)
-    
-    
-
-    
-    viewControllers = [navController1, navController2]
-
+func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 100.0
 }
 ```
-Now call both setup functions in your ```viewDidLoad()```
+If you run the app again, you’ll see that the tableview cells are now taller than before. 
+
+# Implementing Stack Navigation
+Now that we have more room to work with, lets go forward with utilizing our Order model to create objects to fill our cells with. 
 
 ```
-setupViewControllers()
-setupTabBarIcons()
+let orders = [Order(title: "July 2020", image: UIImage(named: "box")!),
+                Order(title: "June 2020", image: UIImage(named: "box")!),
+                Order(title: "May 2020", image: UIImage(named: "box")!),
+                Order(title: "December 2019", image: UIImage(named: "box")!),
+                Order(title: "November 2019", image: UIImage(named: "box")!),
+                Order(title: "October 2019", image: UIImage(named: "box")!),
+                Order(title: "September 2019", image: UIImage(named: "box")!)]
 ```
 
-## Testing What We Have So Far 
-Now, let’s run the app and see what we have!
+Back to our `PastOrderCell` we need a helper function to help us connect the pieces together, just as we did in our collectionView. 
+```
+func setCellContents(item: Order){
+    itemImage.image = item.image
+    title.text = item.title
+}
+```
 
-You should see an error, “Use of unresolved identifier ```View Controller``` this is because we changed the name to ```NewOrderViewController```. If we update the name in our ```SceneDelegate.swift``` file to ```NewOrderViewController```, after we run the app we will only be able to see the ```NewOrderViewController``` page. But what about our other page? 
+Now going back to our `PastOrderViewController`
 
-### Let's Fix This
-Locate the **mainController** constant we created in the beginning of the tutorial within ```SceneDelegate```. Change the mainController to be ```TabBarController()```.
+In our `cellForRowAt` function, we want to add:
 
-It should look like this: 
-'''
-let mainController =  TabBarController()
-'''
+```       
+cell.setCellContents(item: orders[indexPath.row])
+```
 
-Now lets run the app again! 
+This piece of codes makes it possible to set the objects in our orders array into the tableview cells.
 
-You should now have a tabbar at the bottom of your simulator and be able to click the tabbar icons to travel between the two pages and see a green screen and a red screen. 
+We will also want to update the `numberOfRowsInSection`  to:
 
->[action]
->can you add a few more pages and icons to the tabbar? 
-> What is the maximum number of icons a tabbar can hold? 
+```
+return orders.count
+```
 
+If you run the app now you should see a list of past orders under the history tab. If you click on the cells of the table, you’ll notice that nothing happens. This is because we haven’t implemented a `didSelectRowAt()` method. This builtin function allows the tableview capabilities and actions to happen when a user clicks on a tableview cell. 
+
+Before we’re able to do this, we will need to create a new page to hold the list of items depending on which past order the user would like to view. 
+
+# Creating Order List Page to See Items Bought in the Past
+
+Create a new swift file `Cmd + N` and name it `OrderList.swift`
+
+For now, let's copy and paste the entire code file from `PastOrderViewController` into the `OrderList.swift` file. Make sure to rename the class in `OrderList.swift` to be `class OrderList: UIViewController`
+
+Now let's go back to the `PastOrderViewController` file and add this to the bottom of the extension:
+```
+func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    print("selected!")
+    let nextVC: OrderList = OrderList()
+    self.navigationController?.pushViewController(nextVC, animated: true)
+}
+```
+
+If you run your app now and head to the history tab, you’ll notice that you’re now able to click on a tableview cell and it will take you to a new tableview. 
+
+Something else you might have noticed is the back button that magically appeared in the navigation controller. 
+
+This is a builtin feature that is given when you use stack navigation in programming and was given to you through this line: 
+```
+self.navigationController?.pushViewController(nextVC, animated: true)
+```
+
+Having stack navigation is great, but as it sits right now it might not be as useful as we’d like it to be since it’s repetitive information. Let's backtrack and update this new tableview to include a list of items instead of another list of orders within a list of orders. 
+
+Oof, see, if it’s this hard to wrap your mind around then it definitely needs fixing! 
 
 >[action]
 > Let’s commit!
 >
 \```bash
-$ git commit -m “Users can navigate between pages using tabbar” 
-
-Great progress so far! We now have our navigation setup. Our app still looks a bit lack-luster, lets continue to build out our pages. 
+$ git commit -m “Implement stack navigation”
