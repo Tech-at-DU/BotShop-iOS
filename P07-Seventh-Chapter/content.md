@@ -68,6 +68,28 @@ Remember to call `getItems()` in the `viewDidLoad()` method!
 
 # Viewing Items in Order List 
 
+Locate the `cellForRowAt` function in the `PastOrderViewController` file and add the following line of code to display the dates in the Past Order Page:
+
+```
+cell.textLabel?.text = "\(indexPath.row) \(orders[indexPath.row].title)"
+```
+
+Now, we will utilize the `setBoxContents` helper function we created earlier in the `PastOrderCell` file to set the information we created, into their designated cells. 
+```
+cell.setBoxContents(box: orders[indexPath.row])
+```
+
+With the information in the cells set, all that's left to do is to display the information after a user selects a date to view from. 
+
+In the `didSelectRowAt` method, update it to the following:
+```
+func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    print("selected!")
+    let nextVC: OrderList = OrderList()
+    nextVC.currentOrder = orders[indexPath.row]
+    self.navigationController?.pushViewController(nextVC, animated: true)
+}
+```
 
 
 
