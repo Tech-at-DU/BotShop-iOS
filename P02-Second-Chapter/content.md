@@ -18,7 +18,7 @@ For now you do not need to check any of the boxes like Core Data or UITests for 
 <!-- 
 <img src="assets/new-project.png"> -->
 
-![New Project Img](assets/new-project.png "Creating a New Project")
+![New Project Img](../assets/new-project.png "Creating a New Project")
 
 <img src="assets/new-project2.png">
 
@@ -99,11 +99,8 @@ Set up your repo!
 >
 ```
 $ git init
-
 $ git add .
-
 $ git commit -m 'project init'
-
 ```
 
 Now Go to GitHub and create a public repository called Bot-Shop, and now associate it as a remote for your local git project and then push to it.
@@ -112,9 +109,6 @@ Now Go to GitHub and create a public repository called Bot-Shop, and now associa
 > Push it!
 >
 ```
-
 $ git remote add origin GITHUB-REPO-URL
-
 $ git push origin master -u
-
 ```
