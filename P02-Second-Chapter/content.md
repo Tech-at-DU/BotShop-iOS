@@ -15,8 +15,10 @@ In this section you are going to do some project setup in preparation for the re
 Create a new Single View App. Check that the <em>Language</em> is set to ```Swift``` and the User Interface is set to ```Storyboard``` (you read that correctly, don't worry, you'll see how to remove it soon enough). We'll name the app ```Bot Shop``` but feel free to name it as you please.
 
 For now you do not need to check any of the boxes like Core Data or UITests for this tutorial.
+<!-- 
+<img src="assets/new-project.png"> -->
 
-<img src="assets/new-project.png">
+![New Project Img](assets/new-project.png "Creating a New Project")
 
 <img src="assets/new-project2.png">
 
@@ -95,24 +97,24 @@ Set up your repo!
 >[action]
 > Make your first commit
 >
-\```
+```
 $ git init
 
 $ git add .
 
 $ git commit -m 'project init'
 
-\```
+```
 
 Now Go to GitHub and create a public repository called Bot-Shop, and now associate it as a remote for your local git project and then push to it.
 
 >[action]
 > Push it!
 >
-\```
+```
 
 $ git remote add origin GITHUB-REPO-URL
 
 $ git push origin master -u
 
-\```
+```
