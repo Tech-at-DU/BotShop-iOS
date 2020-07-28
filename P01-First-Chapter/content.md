@@ -94,11 +94,10 @@ For our project, we will have two icons on the tabbar but you can have at most i
 # User Stories
 User stories is a tool used in agile software development to capture a feature or task from the users perspective. 
 
-```
 1. As a buyer, I want to see available microbots so that I can purchase the one I need 
 2. As a buyer, I want to see previous orders of microbots so that I can remember which ones I like and do not like 
 3. As a buyer, I want to be able to favorite the microbots I like so that I can easily find them next time 
-```
+
 
 # If You Get Stuck
 Getting stuck when coding (and debugging) is a natural part of the programming process. If you find yourself stuck on a problem or lost, feel free to take a break, get some water, take a walk, and come back with a fresh mind. Then retrace your steps in the tutorial. Make sure you've follow each step of the tutorial. It's easy to make typos or to accidentally skip over important steps.
