@@ -12,7 +12,7 @@ In this section you are going to do some project setup in preparation for the re
 
 # Create a New Xcode Project 
 
-Create a new Single View App. Check that the <em>Language</em> is set to ```Swift``` and the User Interface is set to ```Storyboard``` (you read that correctly, don't worry, you'll see how to remove it soon enough). We'll name the app ```Bot Shop``` but feel free to name it as you please.
+Create a new Single View App. Check that the <em>Language</em> is set to ```Swift``` and the User Interface is set to ```Storyboard``` (you read that correctly, don't worry, you'll see how to remove it soon enough).
 
 For now you do not need to check any of the boxes like Core Data or UITests for this tutorial.
 <!-- 
@@ -20,13 +20,15 @@ For now you do not need to check any of the boxes like Core Data or UITests for 
 
 ![New Project Img](../assets/new-project.png "Creating a New Project")
 
-<img src="assets/new-project2.png">
+We'll name the app ```Bot Shop``` but feel free to name it as you please.
+
+![New Project Img](../assets/new-project2.png "Creating a New Project")
 
 # Import Resources for Project 
 
-Download the Bot Shop assets that have been created for you. Once the download has finished, unpack the zip file and drag it into the project tree on the lefthand side or <em>Project Navigator</em>. Make sure that you have Copy items if needed and Create Groups selected.
+Download the Bot Shop assets that have been created for you. Once the download has finished, unpack the zip file and drag it into the project tree on the lefthand side or <em>Project Navigator</em>. Make sure that you have `Copy items if needed` and `Create Groups` selected.
 
-<img src="assets/add_assets.png">
+![Add Assets Img](../assets/add_assets.png "Adding Assets")
 
 # Remove Storyboard 
 Find the Main.storyboard file on your Project Navigator. Right click on the file and delete it. Make sure to click ```Move to Trash```. 
