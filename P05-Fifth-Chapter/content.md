@@ -10,6 +10,9 @@ Similar to how we built out the collectionView, let's first build out a custom t
 You will notice many similarities in how we set up the tableview cell from setting up our collectionview cell. 
 
 ```
+import Foundations
+import UIKit
+
 class PastOrderCell: UITableViewCell{
     
     let stackView: UIStackView = {
@@ -46,11 +49,12 @@ class PastOrderCell: UITableViewCell{
     
 }
 ```
+
 We have a title and image within a stackView, just like how we set it up in the collectionView, only this stack view has a horizontal axis instead of a vertical one.
 
 ## Constraining Title and Image to StackView
 
-As always we should create a setup function to constraint all our elements into place. 
+As always we should create a setup function to constraint all our elements into place. Lets put this after `required init` method.
 
 ```
 func setup() {
@@ -82,6 +86,7 @@ let tableView =  UITableView()
 ```
 
 Then, register the custom cell we just made inside the  `viewDidLoad()`
+
 ```
 tableView.register(PastOrderCell.self, forCellReuseIdentifier: "cell")
 ```
@@ -93,6 +98,7 @@ Go ahead and click "fix" to add protocol stubs, just like we did when setting up
 For `numberOfRowsInSection` for now let's `return 10`.
 
 In `cellForRowAt` let's register our custom tableView cell and set it up as the cell in the tableView. 
+
 ```
 let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PastOrderCell
     cell.accessoryType = .disclosureIndicator
@@ -101,6 +107,7 @@ return cell
 ```
 
 Once again we need to set the delegate and dataSource in the viewDidLoad() method. 
+
 ```
 tableView.delegate = self
 tableView.dataSource = self
@@ -108,6 +115,7 @@ tableView.dataSource = self
 
 ## Constraining TableView
 Let's also create a function to set up the view for this page. This function will constrain the tableView to our screen. 
+
 ```
 func setUpTableView(){
     view.addSubview(tableView)
@@ -124,8 +132,12 @@ If you run the app now, you will see an empty tableview under the history tab. C
 
 What we would like is for there to be an image and a date listed and then we want to be able to click on a cell and see a list of all the items the user bought on that date. 
 
+# Push to Github
+
 >[action]
 > Let’s commit!
 >
-\```bash
+```
+$ git add .
 $ git commit -m “Build out basic table view”
+```
