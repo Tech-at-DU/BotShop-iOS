@@ -10,6 +10,7 @@ First thing's first, we need to associate the Item and Order models; let's open 
 Within the file, add: `var items: [Item]`
 
 Your Order model should now look like the following: 
+
 ```
 struct Order {
     var title: String
@@ -31,6 +32,7 @@ Instead, let's create a new variable for orders and have it be an empty array.
 Here, we'll be creating a function that will handle the items within the orders. 
 
 Let's create a  `getItems()` function
+
 ```
 func getItems(){
 
@@ -38,6 +40,7 @@ func getItems(){
 ```
 
 Inside the function, let's write out the possible items that can be purchased
+
 ```
 let robot1 = Item(title: "Respiratory", image: UIImage(named: "robot1")!)
 let robot2 = Item(title: "Muscular", image: UIImage(named: "robot2")!)
@@ -48,6 +51,7 @@ let robot6 = Item(title: "Nervous", image: UIImage(named: "robot6")!)
 ```
 
 Below that, let's create the list of Orders and determine which items were bought on which date. Feel free to play around with this part as you'd like. 
+
 ```
 let ordersList = [Order(title: "July 2020", image: UIImage(named: "box")!, items: [robot1, robot3]),
                 Order(title: "June 2020", image: UIImage(named: "box")!, items: [robot2, robot3, robot6]),
@@ -75,6 +79,7 @@ cell.textLabel?.text = "\(indexPath.row) \(orders[indexPath.row].title)"
 ```
 
 Now, we will utilize the `setBoxContents` helper function we created earlier in the `PastOrderCell` file to set the information we created, into their designated cells. 
+
 ```
 cell.setBoxContents(box: orders[indexPath.row])
 ```
@@ -82,6 +87,7 @@ cell.setBoxContents(box: orders[indexPath.row])
 With the information in the cells set, all that's left to do is to display the information after a user selects a date to view from. 
 
 In the `didSelectRowAt` method, update it to the following:
+
 ```
 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     print("selected!")
@@ -91,11 +97,12 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 }
 ```
 
-
-
+# Push to Github
 
 >[action]
 > Let’s commit!
 >
-\```bash
+```
+$ git add .
 $ git commit -m “Users can see items from past orders”
+```
