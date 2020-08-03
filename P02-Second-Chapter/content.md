@@ -7,7 +7,6 @@ In this section, we'll get introduced to our new Xcode project and start working
 
 **Agile development** is an approach to software development that continuously delivers working software. We'll dive deeper into this concept as we move forward with our project.
 
-# Project Setup 
 In this section you are going to do some project setup in preparation for the rest of the tutorial.
 
 # Create a New Xcode Project 
@@ -15,8 +14,6 @@ In this section you are going to do some project setup in preparation for the re
 Create a new Single View App. Check that the <em>Language</em> is set to ```Swift``` and the User Interface is set to ```Storyboard``` (you read that correctly, don't worry, you'll see how to remove it soon enough).
 
 For now you do not need to check any of the boxes like Core Data or UITests for this tutorial.
-<!-- 
-<img src="assets/new-project.png"> -->
 
 ![New Project Img](../assets/new-project.png "Creating a New Project")
 
@@ -31,13 +28,16 @@ Download the Bot Shop assets that have been created for you. Once the download h
 ![Add Assets Img](../assets/add_assets.png "Adding Assets")
 
 # Remove Storyboard 
-Find the Main.storyboard file on your Project Navigator. Right click on the file and delete it. Make sure to click ```Move to Trash```. 
+Find the Main.storyboard file on your Project Navigator. Right click on the file and delete it. Make sure to click `Move to Trash`. 
 
 Now open the SceneDelegate.swift file on your Project Navigator.
 
-At the top of the class add ```var window: UIWindow?```
+At the top of the class add 
+
+```var window: UIWindow?```
 
 Then locate: 
+
 ```
 func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions)
 ```
@@ -63,7 +63,7 @@ Now go to the root page of your project, look for the **Deployment Info** sectio
 
 Highlight the text in the textfield that says **Main** and delete it. You should now have an empty field for Main Interface. 
 
-Lastly, lets go to your ```Info.plist``` file and press CTRL + F "Main" to reveal all instances. 
+Lastly, lets go to your `Info.plist` file and press **CTRL + F** and find "Main" to reveal all instances. 
 
 Now remove any instances of Main that appears by clicking on the minus ( - ) symbol.
 
@@ -105,7 +105,7 @@ $ git add .
 $ git commit -m 'project init'
 ```
 
-Now Go to GitHub and create a public repository called Bot-Shop, and now associate it as a remote for your local git project and then push to it.
+Now go to GitHub and create a public repository called Bot-Shop, and now associate it as a remote for your local git project and then push to it.
 
 >[action]
 > Push it!
