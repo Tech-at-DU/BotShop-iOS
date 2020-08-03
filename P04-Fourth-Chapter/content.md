@@ -99,11 +99,15 @@ Run the app again and you’ll see that green squares are larger and filling up 
 
 We’re now a step closer to what we’d like our collection view to look like! Great work! 
 
+# Push to Github
+
 >[action]
 > Let’s commit!
 >
-\```bash
+```
+$ git add .
 $ git commit -m “Set up basic collection view”
+```
 
 
 # Adding Details to Collection View Cells 
