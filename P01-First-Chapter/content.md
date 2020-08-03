@@ -36,7 +36,6 @@ Resources can include (but are not limited to):
 
 # Learning Outcomes
 
-```
 By the end of this tutorial, you should be able to...
 
 1. Create an iOS application programmatically using agile development
@@ -44,7 +43,7 @@ By the end of this tutorial, you should be able to...
 3. Create tableviews and collectionviews 
 4. Implement custom fonts and custom tabbar icons 
 5. Have a better understanding of stacks
-```
+
 
 >[action]
 > Take a moment to write down these learning outcomes and reflect on them. Make sure that as you progress through the tutorial that you're furthering your understanding, and that by the end, you have completed all of the outcomes.
@@ -52,18 +51,20 @@ By the end of this tutorial, you should be able to...
 # What We're Building 
 At the end of this tutorial you will have built your own mobile shopping app! 
 
-## New Order Page 
-<img src="assets/new-screen.png" width="300">  
+## New Order Page  
+![New Order Screen Img](../assets/new-screen.png "Finished New Order Screen")
 
 The New Order page is made up of a collection view and shows the items that can be purchased. Each cell in the collection view is a custom cell that includes an image and label within a vertical stackview. 
 
 ## Past Order Page
-<img src="assets/history-screen.png" width="300"> 
+
+![Past Order Screen Img](../assets/history-screen.png "Finished Past Order Screen")
 
 The Past Order page is a table view that displays dates of orders made in the past. Each cell in the table view is a custom cell that includes an image and label within a horizontal stackview.
 
 ## Items List Page
-<img src="assets/order-list-screen.png" width="300">
+
+![Order List Screen Img](../assets/order-list-screen.png "Finished List of Past Orders Screen")
 
 The Items List page is a table view that displays the individual items bought on a specific date. Users can get to this page by clicking on a table view cell from the Past Order page. The cells on this table view will not be clickable.
 
@@ -71,7 +72,8 @@ The Items List page is a table view that displays the individual items bought on
 
 ## Stack Navigation 
 
-<img src="assets/stack_navigation.png" width="300">
+![Stack Navigation Diagram](../assets/stack_navigation.png "Stack Navigation Diagram")
+
 
 The transition from the Past Order page to the Items List page illustrates a **stack navigation**. 
 
@@ -79,9 +81,9 @@ By selecting an item in the view controller, it pushes a new view controller ons
 
 ## Tabbar 
 
- <img src="assets/tabbar.png" width="300">
+![Stack Navigation Diagram](../assets/tabbar.png "Stack Navigation Diagram")
 
- The transition from New Order page to Past Order page illustrates navigation from thr tabbar. A user must click on a tabbar icon in order to navigate between pages. 
+The transition from New Order page to Past Order page illustrates navigation from thr tabbar. A user must click on a tabbar icon in order to navigate between pages. 
 
 Tab bar controller’s views are embedded (using the inherited view property) in the app window. The tab bar controller automatically selects that view controller and displays its contents, resizing them as needed to fit the tab bar interface. 
 
