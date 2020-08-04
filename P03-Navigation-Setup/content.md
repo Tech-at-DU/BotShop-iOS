@@ -26,14 +26,17 @@ Create a new swift file and name it `PastOrderViewController`, setup its class w
 The file should now look like the following: 
 
 ```
+import Foundation
+import UIKit
+
 class PastOrderViewController: UIViewController {
- 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view.backgroundColor = .green 
+        view.backgroundColor = .green
     }
- 
+
 }
 ```
 
@@ -45,6 +48,9 @@ Create a new swift file and name it `TabBarController`, setup the `TabBarControl
 Your file should now look like the following: 
 
 ```
+import Foundation
+import UIKit
+
 class TabBarController: UITabBarController, UITabBarControllerDelegate{
     
     override func viewDidLoad() {
@@ -65,7 +71,7 @@ This sets default delegate functionality in your controller. Delegates in genera
 # Creating Custom Tabbar Icons 
 Next we will set up the icons in the tabbar. These icons can technically be any images you'd like, feel free to have fun and explore setting images as the icons later on. For the time being, we have included images in the project assets that you transfered over into the assets folder from the previous chapter. 
 
-To get started we will need two buttons in order to navigate between our two pages. To do this, first we need to declare two variables.
+To get started we will need two buttons in order to navigate between our two pages. To do this, first we need to declare two variables of type `UIImageView` at the top of our  `TabBarController` class.
 
 ```
 var firstItemImageView: UIImageView!
@@ -74,7 +80,7 @@ var secondItemImageView: UIImageView!
 
 Then we want to create a function to set up the tab bar icons. This function takes the UIImageViews we have and adds them as subviews in the tab bar, placing our icons within it. 
 
-Place this block of code under the `viewDidLoad()`.
+Place this block of code after the `viewDidLoad()`.
 
 ```
 func setupTabBarIcons(){
@@ -91,7 +97,7 @@ func setupTabBarIcons(){
 ```
 
 # Setting Up View Controllers within the Tabbar 
-This is where we set up the view controllers and their assigned icons to be placed in the tabbar. 
+This is where we set up the view controllers and their assigned icons to be placed in the tabbar. Place this block of code below the `setupTabBarIcons()` method you just wrote.
 
 ```
 func setupViewControllers(){       
@@ -121,17 +127,33 @@ Now, let’s run the app!
 
 # Putting it All Together
 
+## Oops!
+
 After you run the app, you should see an error:
 
+```
 "Use of unresolved identifier <em>View Controller</em>" 
+```
 
-Don't worry, errors are our friends and every error gives us an opportunity to learn! This error in particular occurred because we changed the file name from `View Controller` to `NewOrderViewController`. 
+Don't worry, errors are our friends and every error gives us an opportunity to learn! This error in particular occurred because we changed the file name from 
+
+```
+let mainController = ViewController()
+```
+
+to 
+
+```
+let mainController = NewOrderViewController()
+```
 
 Let's follow the error and go to the `SceneDelegate.swift` file and update the name from `View Controller` to `NewOrderViewController` and run the app again. 
 
 What do you see? You might have noticed that after we run the app we are only be able to see the `NewOrderViewController` page. But we're unable to navigate to the Past Order page. Why is that? 
 
-If you look at the `mainController` constant we created in the beginning of the tutorial within `SceneDelegate`, you'll see that the `mainController` is the first view controller that gets launched. We need to change the `mainController` to be the `TabBarController()` in order to give us access to all view controllers within our navigation controller. 
+## Launching with TabBar
+
+If you look at the `mainController` constant we created in the beginning of the tutorial within `SceneDelegate`, you'll see that the `mainController` is the first view controller that gets launched. We actually need to change the `mainController` to be the `TabBarController()` in order to give us access to all view controllers within our navigation controller. 
 
 ```
 let mainController =  TabBarController()
@@ -142,7 +164,8 @@ Now lets run the app again!
 You should now have a tab bar at the bottom of your simulator and be able to click the tab bar icons to travel between the two pages and see a green screen and a red screen. 
 
 >[action]
->can you add a few more pages and icons to the tab bar? 
+>Can you add a few more pages and icons to the tab bar? 
+>
 > What is the maximum number of icons a tab bar can hold? 
 
 
