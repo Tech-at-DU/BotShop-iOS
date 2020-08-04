@@ -5,7 +5,7 @@ slug: table-view-setup
 Right now when the history tab brings us to an empty green page. We want to be able to see a list of dates that show the users past orders. We then want to be able to click on one of the cells and be brought to another page that shows us the list of all the bots that were bought during that order. 
 
 # Creating a Custom TableView Cell 
-Similar to how we built out the collectionView, let's first build out a custom tableView cell for our tableView to use later on. Each tableViewCell will hold a label and image. `Cmd + n` and name it `PastOrderCell.swift`
+Similar to how we built out the collectionView, let's first build out a custom tableView cell for our tableView to use later on. Each tableViewCell will hold a label and image. Create a new file and name it `PastOrderCell.swift`
 
 You will notice many similarities in how we set up the tableview cell from setting up our collectionview cell. 
 
@@ -54,7 +54,7 @@ We have a title and image within a stackView, just like how we set it up in the 
 
 ## Constraining Title and Image to StackView
 
-As always we should create a setup function to constraint all our elements into place. Lets put this after `required init` method.
+As always we should create a setup function to constraint all our elements into place. Lets put this after `override init` method.
 
 ```
 func setup() {
@@ -74,7 +74,7 @@ func setup() {
 }
 ```
 
-Remember to call `setup()` in `override init` method!
+Again, remember to call `setup()` in `override init` method!
 
 Now that we have the custom tableView cell setup, let's create the tableView that will hold the cells. 
 
@@ -127,6 +127,53 @@ func setUpTableView(){
 ```
 
 Remember to call `setUpTableView()` in `viewDidLoad()`
+
+Your file should now look like the following: 
+
+```
+import Foundation
+import UIKit
+
+class PastOrderViewController: UIViewController {
+    
+    let tableView =  UITableView()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        view.backgroundColor = .green
+        tableView.register(PastOrderCell.self, forCellReuseIdentifier: "cell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        setUpTableView()
+    }
+    
+    func setUpTableView(){
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+    }
+
+}
+
+extension PastOrderViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PastOrderCell
+            cell.accessoryType = .disclosureIndicator
+            cell.selectionStyle = .none
+        return cell
+    }
+    
+    
+}
+```
 
 If you run the app now, you will see an empty tableview under the history tab. Currently there is no information in the tableview cells and nothing happens when you click on a cell. 
 
