@@ -23,7 +23,7 @@ We'll name the app ```Bot Shop``` but feel free to name it as you please.
 
 # Import Resources for Project 
 
-Download the Bot Shop assets that have been created for you. Once the download has finished, unpack the zip file and drag it into the project tree on the lefthand side or <em>Project Navigator</em>. Make sure that you have `Copy items if needed` and `Create Groups` selected.
+Download the [Bot Shop assets](https://github.com/ellojess/bot-shop-iOS/blob/master/Bot%20Images.zip) that have been created for you. Once the download has finished, unpack the zip file, select all the items, and drag it into the project tree on the lefthand side or <em>Project Navigator</em>. Make sure that you have `Copy items if needed` and `Create Groups` selected.
 
 ![Add Assets Img](../assets/add_assets.png "Adding Assets")
 
