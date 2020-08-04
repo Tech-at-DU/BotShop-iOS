@@ -28,15 +28,34 @@ Download the Bot Shop assets that have been created for you. Once the download h
 ![Add Assets Img](../assets/add_assets.png "Adding Assets")
 
 # Remove Storyboard 
-Find the Main.storyboard file on your Project Navigator. Right click on the file and delete it. Make sure to click `Move to Trash`. 
+## Clean All Instances of "Main"
+Find the `Main.storyboard` file on your Project Navigator. 
 
-Now open the SceneDelegate.swift file on your Project Navigator.
+Right click on the file and delete it. Make sure to click `Move to Trash`. 
 
-At the top of the class add 
+Now go to the root page of your project, look for the **Deployment Info** section, find the **Main Interface** dropdown section.
+
+![Deployment Section Img](../assets/deployment-info.png "Deployment Section")
+
+Highlight the text in the textfield that says **Main** and delete it. You should now have an empty field for Main Interface. 
+
+Lastly, lets go to your `Info.plist` file and press **Cmd + F** and find "Main" to reveal all instances. 
+
+Now remove any instances of Main that appears by clicking on the minus `( - )` symbol.
+
+Otherwise, you can right click and 'delete', remember to always click ```Move to Trash``` when any instances from the project. 
+
+# Creating a Main Controller Programmatically
+
+We need to tell Xcode what to launch now that we have removed all references to `Main.storyboard`.
+
+Open the `SceneDelegate.swift` file on your Project Navigator.
+
+At the top of the class you should see: 
 
 ```var window: UIWindow?```
 
-Then locate: 
+Within the same file, locate: 
 
 ```
 func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions)
@@ -59,26 +78,28 @@ window?.makeKeyAndVisible()
 window?.windowScene = windowScene
 ```
 
-Now go to the root page of your project, look for the **Deployment Info** section, find the **Main Interface** dropdown section.
-
-Highlight the text in the textfield that says **Main** and delete it. You should now have an empty field for Main Interface. 
-
-Lastly, lets go to your `Info.plist` file and press **CTRL + F** and find "Main" to reveal all instances. 
-
-Now remove any instances of Main that appears by clicking on the minus ( - ) symbol.
-
-Remember to always click ```Move to Trash``` when any instances from the project. 
-
 # Making Sure We're On Track 
-For testing purposes, let's open the ```ViewController.swift``` file and set the background color to something of your choosing.
+For testing purposes, let's open the ```ViewController.swift``` file and set the background color to something of your choosing. This code will go within the `viewDidLoad()` method.
 
 > [solution]
 > See if you can remember how to change the background color of the view off the top of your mind.
 >
 ```
-view.backgroundColor = .red
+import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        view.backgroundColor = .red
+    }
+
+}
 ```
 Run your app now and you should see a red screen. If you do not then back track and make sure you have removed all instances of Main from your project. 
+
+![Red Screen Img](../assets/red-screen.png "Deployment Section")
 
 If you see red, then congratulations! You're on your way to developing your first fully programmatic iOS mobile application.
 
@@ -92,9 +113,7 @@ When prompted to commit, you'll see a sample commit message. Feel free to use yo
 Lastly, the commit prompts in this tutorial should be the minimum amount of times you commit. If you want to do more commits, breaking your chunks into even smaller chunks, that is totally fine!
 
 
-# Set Up Git/GitHub
-
-Set up your repo!
+## Set up your repo!
 
 >[action]
 > Make your first commit
