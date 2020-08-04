@@ -5,7 +5,7 @@ slug: collection-view-implementation
 In this section we will be creating custom cells to populate the collection view with in order to display the items for sale in the New Order page. 
 
 # Creating Custom Cells for the Collection View 
- Each cell will hold a single item for display. `Click cmd + N` and create a new swift file called `NewItemCell`.
+ Each cell will hold a single item for display. Create a new swift file called `NewItemCell`.
 
  ```
 import Foundation
@@ -25,17 +25,37 @@ The first thing we want to do is set up a collection view that will display all 
 To do this, lets instantiate a UICollectionView object in a view controller
 
 ```
-var collectionView : UICollectionView!
+let collectionView: UICollectionView = {
+    let layout = UICollectionViewFlowLayout()
+    layout.minimumLineSpacing = 30
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    collectionView.translatesAutoresizingMaskIntoConstraints = false
+
+    return collectionView
+}()
 ```
 
-Then let's set the dataSource and delegate of the collection view in the `viewDidLoad()` method. 
+## Setup the Data Source and Delegate
+Let's set the dataSource and delegate of the collection view in the `viewDidLoad()` method. 
 
 ```
 collectionView.dataSource = self
 collectionView.delegate = self
 ```
+You should immediately see 2 errors: 
 
-Let's also create a function to set up the view for this page. This function will constrain the collectionView to our screen. 
+```
+Cannot assign value of type 'NewOrderViewController' to type...
+```
+
+This is because we have not conformed the class to `UICollectionViewDataSource` and `UICollectionViewDelegate`. 
+
+We'll come back to address this issue in a short while.
+ 
+## Adding Constraints 
+Let's move forward for now and create a function to set up the view for this page. 
+
+This function will constrain the collectionView to our screen. Place this below the `viewDidLoad()` method
 
 ```
 func setViews(){
@@ -52,11 +72,23 @@ func setViews(){
 Remember to call `setViews()` in the `viewDidLoad()` method. 
 
 # Visualizing the Collection View 
-Inside the `viewDidLoad()`, register the custom cell we just created.
+Inside the `collectionView` instantiation, register the custom cell we just created.
 
 ```
-collectionView.register(NewItemCell.self, forCellWithReuseIdentifier: "cell")
+let collectionView: UICollectionView = {
+    let layout = UICollectionViewFlowLayout()
+    layout.minimumLineSpacing = 30
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    collectionView.translatesAutoresizingMaskIntoConstraints = false
+    collectionView.backgroundColor = UIColor(red:1.0, green:1.0, blue:1.0, alpha:0.0)
+
+    collectionView.register(NewItemCell.self, forCellWithReuseIdentifier: "cell")
+
+    return collectionView
+}()
 ```
+
+## Fixing Those Errors
 
 Outside of the `NewOrderViewController` Class, create an extension to instantiate `UICollectionViewDataSource`, `UICollectionViewDelegate` in the `NewOrderViewController`. 
 
@@ -79,9 +111,28 @@ cell.backgroundColor = .green
 return cell
 ```
 
+Your extension should look like the following: 
+
+```
+extension NewOrderViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NewItemCell
+        cell.backgroundColor = .green
+        return cell
+    }
+    
+}
+```
+
 Run the app now. 
 
 You should see 10 green squares in your New Order page.
+
+## Editing the Layout of Cells 
 
 The items are very small and leave a lot to be desired.
  
@@ -96,6 +147,9 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
 ```
 
 Run the app again and you’ll see that green squares are larger and filling up more space. 
+
+>[action]
+> Play around with the values within the `collectionViewLayout` until you find a sizing you like for your app. 
 
 We’re now a step closer to what we’d like our collection view to look like! Great work! 
 
@@ -115,11 +169,14 @@ It’s great that we have our green squares, we’re proud they exist. But they�
 
 ## Creating Item Model 
 Let's start by creating a model for our items. 
-Click 'cmd + N' and create a new swift file called `Item`.
+Click and create a new swift file called `Item`.
 
 Inside `Item.swift` add the following: 
 
 ```
+import Foundation
+import UIKit
+
 struct Item{
     var title: String
     var image: UIImage
@@ -157,10 +214,16 @@ let title: UILabel = {
     title.text = "testing"
     return title
 }()
+
+override init(frame: CGRect) {
+    super.init(frame: .zero)
+}
 ```
 
 ## Adding Constraints
 Similar to what we did when setting up the collection view, let's create another setup method in the `NewItemCell` file to arrange the image and title within the stackview of the cell. 
+
+Add this block after the `override init()` method.
 
 ```
 func setup() {
@@ -177,7 +240,7 @@ func setup() {
     stackView.addArrangedSubview(title)
 }
 ```
-Remember to call `setup()` within the `init` method of the cell file!
+Remember to call `setup()` within the `override init` method of the cell file, otherwise it will not get called.
 
 At the bottom of your class include the `required init` if you haven't already: 
 
@@ -190,7 +253,7 @@ required init?(coder: NSCoder) {
 If you run the app now, you’ll see “testing” is written in all of your cells. You might be wondering where the images are.
 
 # Displaying Item Images in Custom Cells 
-Let's start this by going back to the `NewOrderViewController` and creating an array of items that utilizes out `Item` model to specify the title and image. 
+Let's start this by going back to the `NewOrderViewController` and creating an array of items that utilizes out `Item` model to specify the title and image. This should be found at the towards of the class file.
 
 ```
 let data = [
@@ -219,7 +282,7 @@ cell.data = self.data[indexPath.row]
 
 As you can see we have an error saying `NewItemCell` has no member, `data`. This is because we haven’t set up a way for the data array to be able to get implemented into the custom cell we made earlier. 
 
-Let's fix this by going to the `NewItemCell` file and adding the following:
+Let's fix this by going to the `NewItemCell` file and adding the following at the top of the class:
 
 ```
 var data: Item? {
