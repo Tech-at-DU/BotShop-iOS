@@ -133,7 +133,7 @@ And we can update the `cellForRowAt` to be:
 
 ```
 let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PastOrderCell
-cell.setCellContents(item: orderItems[indexPath.row])
+cell.setCellContents(item: currentOrder.items[indexPath.row])
 cell.accessoryType = .disclosureIndicator
 cell.selectionStyle = .none
 return cell
