@@ -13,11 +13,14 @@ What we'll be doing moving forward is setting our History page as the root contr
 
 
 # Creating Order Model 
-Let's create a model for the past orders. `Cmd + N ` to create a new Swift file and name it `Order.swift`.
+Let's create a model for the past orders. Create a new Swift file and name it `Order.swift`.
 
 Within the file, add: 
 
 ```
+import Foundation
+import UIKit
+
 struct Order {
     var title: String
     var image: UIImage
@@ -41,6 +44,8 @@ If you run the app again, you’ll see that the tableview cells are now taller t
 # Implementing Stack Navigation
 Now that we have more room to work with, lets go forward with utilizing our Order model to create objects to fill our cells with. 
 
+Place this towards the top of your `PastOrderViewController.swift` file.
+
 ```
 let orders = [Order(title: "July 2020", image: UIImage(named: "box")!),
                 Order(title: "June 2020", image: UIImage(named: "box")!),
@@ -51,12 +56,19 @@ let orders = [Order(title: "July 2020", image: UIImage(named: "box")!),
                 Order(title: "September 2019", image: UIImage(named: "box")!)]
 ```
 
-Back to our `PastOrderCell` we need a helper function to help us connect the pieces together, just as we did in our collectionView. 
+Back to our `PastOrderCell.swift` file we need a couple of helper function to help us connect the pieces together, just as we did in our collectionView.
+
+Add these two helper methods after the `setup()` method.
 
 ```
-func setCellContents(item: Order){
+func setCellContents(item: Item){
     itemImage.image = item.image
     title.text = item.title
+}
+
+func setBoxContents(box: Order){
+    textLabel?.text = box.title
+    imageView?.image = box.image
 }
 ```
 
@@ -78,13 +90,95 @@ return orders.count
 
 If you run the app now you should see a list of past orders under the history tab. If you click on the cells of the table, you’ll notice that nothing happens. This is because we haven’t implemented a `didSelectRowAt()` method. This builtin function allows the tableview capabilities and actions to happen when a user clicks on a tableview cell. 
 
+For now, your extension should look like the following: 
+
+```
+extension PastOrderViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return orders.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PastOrderCell
+            cell.accessoryType = .disclosureIndicator
+            cell.selectionStyle = .none
+            cell.setCellContents(item: orders[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
+    }
+    
+}
+```
+
 Before we’re able to do this, we will need to create a new page to hold the list of items depending on which past order the user would like to view. 
 
 # Creating Order List Page to See Items Bought in the Past
 
-Create a new swift file `Cmd + N` and name it `OrderList.swift`
+Create a new swift file and name it `OrderList.swift`
 
-For now, let's copy and paste the entire code file from `PastOrderViewController` into the `OrderList.swift` file. Make sure to rename the class in `OrderList.swift` to be `class OrderList: UIViewController`
+For now, let's use the information from `PastOrderViewController` and copy it into the `OrderList.swift` file and change the name of the class and extension to `Orderlist`. This is so that we can immediately implement and see the stack navigation between the two pages.
+
+The `OrderList` file should now look like the following: 
+
+```
+import Foundation
+import UIKit
+
+class OrderList: UIViewController {
+    
+    let orders = [Order(title: "July 2020", image: UIImage(named: "box")!),
+    Order(title: "June 2020", image: UIImage(named: "box")!),
+    Order(title: "May 2020", image: UIImage(named: "box")!),
+    Order(title: "December 2019", image: UIImage(named: "box")!),
+    Order(title: "November 2019", image: UIImage(named: "box")!),
+    Order(title: "October 2019", image: UIImage(named: "box")!),
+    Order(title: "September 2019", image: UIImage(named: "box")!)]
+    
+    let tableView =  UITableView()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        view.backgroundColor = .green
+        tableView.register(PastOrderCell.self, forCellReuseIdentifier: "cell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        setUpTableView()
+    }
+    
+    func setUpTableView(){
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+    }
+
+}
+
+extension OrderList: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return orders.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PastOrderCell
+            cell.accessoryType = .disclosureIndicator
+            cell.selectionStyle = .none
+            cell.setCellContents(item: orders[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
+    }
+    
+}
+```
 
 Now let's go back to the `PastOrderViewController` file and add this to the bottom of the extension:
 

@@ -3,6 +3,10 @@ title: Styling The App
 slug: adding-style
 ---
 
+Currently the app has a bulky design and an oddly X-mas color scheme to it. This is mainly to help you see how various parts come to be during development. 
+
+In this section, you will be customizing the app further and making it your own.
+
 # Adding Custom Colors
 Having a nice color scheme can do a lot to make your app feel more put together and polished. You can check out websites like: 
 

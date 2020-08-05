@@ -22,6 +22,8 @@ struct Order {
 # Refactor Order to Display Items 
 Let's head to the `PastOrderViewController.swift` file and comment out the `orders` constant we had made in the previous chapter. 
 
+Since we also had the `orders` specified in `OrderList.swift`, be sure to comment it out there as well. 
+
 Instead, let's create a new variable for orders and have it be an empty array. 
 
 ```
@@ -29,7 +31,7 @@ Instead, let's create a new variable for orders and have it be an empty array.
 ```
 
 ## Associating Items by Dates 
-Here, we'll be creating a function that will handle the items within the orders. 
+Here, we'll be creating a function that will handle the items within the orders. Place this after the `setUpTableView()` method.
 
 Let's create a  `getItems()` function
 
@@ -96,6 +98,71 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     self.navigationController?.pushViewController(nextVC, animated: true)
 }
 ```
+
+## More Errors 
+
+You should now have an error that says:
+
+```
+Value of type 'OrderList' has no member 'currentOrder'
+```
+
+Let's go to the `OrderList.swift file` and add this towards the top of the class: 
+
+```
+var currentOrder: Order!
+```
+
+# Updating Order List to Display Items Instead of Dates 
+
+In the `OrderList.swift` file, you should have two errors saying 'orders' is undefined. This is because we moved the orders array earlier. 
+
+At the top of the class create an array to old the items: 
+
+```
+var orderItems: [Item] = []
+```
+
+Now in the `numberOfRowsInSection` in the extension, we can update the information to display:
+
+```
+return currentOrder.items.count
+```
+
+And we can update the `cellForRowAt` to be: 
+
+```
+let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PastOrderCell
+cell.setCellContents(item: orderItems[indexPath.row])
+cell.accessoryType = .disclosureIndicator
+cell.selectionStyle = .none
+return cell
+```
+
+The OrderList extension should now look like the following: 
+
+```
+extension OrderList: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return currentOrder.items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PastOrderCell
+            cell.accessoryType = .disclosureIndicator
+            cell.selectionStyle = .none
+            cell.setCellContents(item: orderItems[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
+    }
+    
+}
+```
+
+
 
 # Push to Github
 
