@@ -5,7 +5,7 @@ slug: overview-of-bot-shop
 
 It’s the year 3000 and the everyday person is now 75% machine and requires the services of microbots for inner bodily maintenance. It’s your job to create an app that enables people to order the bots they need.
 
-As the only iOS developer capable for such an important task, you will have the best equipment and tools available to you to create a 100% programmatic native iOS app using Swift and Xcode. 
+As the only iOS developer capable for such an important task, you will have the best equipment and tools available to you to create a 100% programmatic native iOS app using Swift and Xcode.
 
 # Why Is This Important
 Aside from saving billions of people by giving them access to the microbots they need; programmatic Swift iOS applications are an industry standard that allow for more speed, power, and control in the mobile development process. In hand with programmatic iOS development, tab bars are a handy tool that enable users to navigate apps.
@@ -39,9 +39,9 @@ Resources can include (but are not limited to):
 By the end of this tutorial, you should be able to...
 
 1. Create an iOS application programmatically using agile development
-2. Setup navigation in the app using tabbar
-3. Create tableviews and collectionviews
-4. Implement custom fonts and custom tabbar icons
+2. Setup navigation in the app using `TabBar`
+3. Create `tableView`s and `collectionView`s
+4. Implement custom fonts and custom `TabBar` icons
 5. Have a better understanding of stacks
 
 
@@ -93,12 +93,12 @@ For our project, we will have two icons on the tabbar but you can have at most i
 > Can you think of 2 different kinds of scenarios where it might be better to use stack navigation over tabbar and vice versa?
 
 
-# User Stories
+<!-- # User Stories
 User stories is a tool used in agile software development to capture a feature or task from the users perspective.
 
 1. As a buyer, I want to see available microbots so that I can purchase the one I need
 2. As a buyer, I want to see previous orders of microbots so that I can remember which ones I like and do not like
-3. As a buyer, I want to be able to favorite the microbots I like so that I can easily find them next time
+3. As a buyer, I want to be able to favorite the microbots I like so that I can easily find them next time -->
 
 
 # If You Get Stuck

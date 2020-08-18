@@ -2,19 +2,19 @@
 title: Users Can See TableView
 slug: table-view-setup
 ---
-Right now when the history tab brings us to an empty green page. We want to be able to see a list of dates that show the users past orders. We then want to be able to click on one of the cells and be brought to another page that shows us the list of all the bots that were bought during that order. 
+Right now when the history tab brings us to an empty green page. We want to be able to see a list of dates that show the users past orders. We then want to be able to click on one of the cells and be brought to another page that shows us the list of all the bots that were bought during that order.
 
-# Creating a Custom TableView Cell 
-Similar to how we built out the collectionView, let's first build out a custom tableView cell for our tableView to use later on. Each tableViewCell will hold a label and image. Create a new file and name it `PastOrderCell.swift`
+# Creating a Custom TableView Cell
+Similar to how we built out the `collectionView`, let's first build out a custom `tableViewCell` for our `tableView` to use later on. Each `tableViewCell` will hold a label and image. Create a new file and name it `PastOrderCell.swift`
 
-You will notice many similarities in how we set up the tableview cell from setting up our collectionview cell. 
+You will notice many similarities in how we set up the `tableViewCell` from setting up our `collectionViewCell`.
 
-```
+```swift
 import Foundations
 import UIKit
 
 class PastOrderCell: UITableViewCell{
-    
+
     let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -23,7 +23,7 @@ class PastOrderCell: UITableViewCell{
         stackView.distribution = .fill
         return stackView
     }()
-    
+
     let title: UILabel = {
         let title = UILabel()
         title.font = UIFont(name: "AvenirNext-Bold", size: 20)
@@ -31,44 +31,44 @@ class PastOrderCell: UITableViewCell{
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
-    
+
     let itemImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
         return image
     }()
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
 }
 ```
 
-We have a title and image within a stackView, just like how we set it up in the collectionView, only this stack view has a horizontal axis instead of a vertical one.
+We have a title and image within a `stackView`, just like how we set it up in the `collectionView`, only this stack view has a horizontal axis instead of a vertical one.
 
 ## Constraining Title and Image to StackView
 
-As always we should create a setup function to constraint all our elements into place. Lets put this after `override init` method.
+As always we should create a setup function to constrain all our elements into place. Let's put this after the `override init` method.
 
-```
+```swift
 func setup() {
-    
+
     contentView.addSubview(stackView)
-    
+
     stackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.85).isActive = true
     stackView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.75).isActive = true
     stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
     stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-    
+
     stackView.addArrangedSubview(itemImage)
     itemImage.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.25).isActive = true
-    
+
     stackView.addArrangedSubview(title)
     title.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.55).isActive = true
 }
@@ -76,47 +76,47 @@ func setup() {
 
 Again, remember to call `setup()` in `override init` method!
 
-Now that we have the custom tableView cell setup, let's create the tableView that will hold the cells. 
+Now that we have the custom `tableViewCell` setup, let's create the `tableView` that will hold the cells.
 
 # Building Out The TableView
-Navigate back to the `PastOrderViewController` file and instantiate a UITableView object. 
+Navigate back to the `PastOrderViewController` file and instantiate a `UITableView` object.
 
-```
+```swift
 let tableView =  UITableView()
 ```
 
 Then, register the custom cell we just made inside the  `viewDidLoad()`
 
-```
+```swift
 tableView.register(PastOrderCell.self, forCellReuseIdentifier: "cell")
 ```
 
 Now outside of the class, create an extension to the `PastOrderViewController` for the `UITableViewDataSource` and `UITableViewDelegate`.
 
-Go ahead and click "fix" to add protocol stubs, just like we did when setting up the collectionView in the previous chapter. 
+Go ahead and click "fix" to add protocol stubs, just like we did when setting up the collectionView in the previous chapter.
 
-For `numberOfRowsInSection` for now let's `return 10`.
+For now, we will have `numberOfRowsInSection` have a return value of  10.
 
-In `cellForRowAt` let's register our custom tableView cell and set it up as the cell in the tableView. 
+In `cellForRowAt` let's register our custom `tableView` cell and set it up as the cell in the `tableView`.
 
-```
+```swift
 let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PastOrderCell
     cell.accessoryType = .disclosureIndicator
     cell.selectionStyle = .none
 return cell
 ```
 
-Once again we need to set the delegate and dataSource in the viewDidLoad() method. 
+Once again we need to set the delegate and dataSource in the `viewDidLoad()` method.
 
-```
+```swift
 tableView.delegate = self
 tableView.dataSource = self
 ```
 
 ## Constraining TableView
-Let's also create a function to set up the view for this page. This function will constrain the tableView to our screen. 
+Let's also create a function to set up the view for this page. This function will constrain the `tableView` to our screen.
 
-```
+```swift
 func setUpTableView(){
     view.addSubview(tableView)
     tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -128,14 +128,14 @@ func setUpTableView(){
 
 Remember to call `setUpTableView()` in `viewDidLoad()`
 
-Your file should now look like the following: 
+Your file should now look like the following:
 
-```
+```swift
 import Foundation
 import UIKit
 
 class PastOrderViewController: UIViewController {
-    
+
     let tableView =  UITableView()
 
     override func viewDidLoad() {
@@ -147,7 +147,7 @@ class PastOrderViewController: UIViewController {
         tableView.dataSource = self
         setUpTableView()
     }
-    
+
     func setUpTableView(){
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -163,21 +163,21 @@ extension PastOrderViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PastOrderCell
             cell.accessoryType = .disclosureIndicator
             cell.selectionStyle = .none
         return cell
     }
-    
-    
+
+
 }
 ```
 
-If you run the app now, you will see an empty tableview under the history tab. Currently there is no information in the tableview cells and nothing happens when you click on a cell. 
+If you run the app now, you will see an empty `tableView` under the history tab. Currently there is no information in the `tableView` cells and nothing happens when you click on a cell.
 
-What we would like is for there to be an image and a date listed and then we want to be able to click on a cell and see a list of all the items the user bought on that date. 
+What we would like is for there to be an image and a date listed and then we want to be able to click on a cell and see a list of all the items the user bought on that date.
 
 # Push to Github
 
