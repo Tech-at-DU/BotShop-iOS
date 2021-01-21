@@ -47,7 +47,7 @@ Lastly, lets go to your `Info.plist` file and press **Cmd + F** and find "Main" 
 
 Now remove any instances of Main that appears by clicking on the minus `( - )` symbol.
 
-Otherwise, you can right click and 'delete', remember to always click ```Move to Trash``` when any instances from the project.
+Otherwise, you can right click the cell and select 'delete', remember to always click ```Move to Trash``` with any instances from the project.
 
 # Creating a Main Controller Programmatically
 
@@ -107,7 +107,7 @@ We used red for our test color. Run your app now and you should see a red (or wh
 
 ![Red Screen Img](../assets/red-screen.png "Deployment Section")
 
-If you see red, then congratulations! You're on your way to developing your first fully programmatic iOS mobile application.
+If you see red or your designated color, then congratulations! You're on your way to developing your first fully programmatic iOS mobile application.
 
 
 # Using Git/GitHub

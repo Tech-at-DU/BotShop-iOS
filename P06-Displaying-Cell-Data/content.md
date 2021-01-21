@@ -3,7 +3,7 @@ title: Displaying Items Based On Order
 slug: displaying-items-in-past-orders
 ---
 
-Right now our app has two `tableView`s in a navigation stack that displays the various dates of orders that have been made in the past. What we would like is to be able to click on a date, then see a list of all the items that were bought on that date.
+Right now our app has two tableViews in a navigation stack that displays the various dates of orders that have been made in the past. What we would like is to be able to click on a date, then see a list of all the items that were bought on that date.
 
 # Adding Items to the Order
 First thing's first, we need to associate the `Item` and `Order` models; let's open the `Order.swift` file.
@@ -32,9 +32,9 @@ Instead, let's create a new variable for orders and have it be an empty array in
 ```
 
 ## Associating Items by Dates
-Continuing in `PastOrderViewController.swift`, we'll be creating a function that will handle the items within the orders. Place this after the `setUpTableView()` method.
+Continuing in `PastOrderViewController.swift`, we'll be creating a function that will handle the items within the orders.
 
-Let's create a  `getItems()` function
+Let's create a `getItems()` function and place it after the `setUpTableView()` method.
 
 ```swift
 func getItems(){
@@ -53,7 +53,7 @@ let robot5 = Item(title: "Lymphatic", image: UIImage(named: "robot5")!)
 let robot6 = Item(title: "Nervous", image: UIImage(named: "robot6")!)
 ```
 
-Below that, let's create the list of Orders and determine which items were bought on which date. Feel free to play around with this part as you'd like.
+Below the possible items, let's create the list of Orders and determine which items were bought on which date. Feel free to play around with this part as you'd like.
 
 ```swift
 let ordersList = [Order(title: "July 2020", image: UIImage(named: "box")!, items: [robot1, robot3]),
@@ -102,7 +102,7 @@ Remember to call `getItems()` in the `viewDidLoad()` method!
 Locate the `cellForRowAt` function in the `PastOrderViewController` file and add the following line of code to display the dates in the Past Order Page:
 
 ```swift
-cell.textLabel?.text = "\(indexPath.row) \(orders[indexPath.row].title)"
+cell.textLabel?.text = "\(indexPath.row + 1) \(orders[indexPath.row].title)"
 ```
 
 Now, we will utilize the `setBoxContents` helper function we created earlier in the `PastOrderCell` file to set the information we created, into their designated cells.

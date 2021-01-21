@@ -30,7 +30,7 @@ Cannot find 'ViewController' in scope
 
 Don't worry, errors are our friends and every error gives us an opportunity to learn! This error in particular occurred because we changed the file name from `ViewController` to `NewOrderViewController` and we forgot to update it in our `SceneDelegate` file!
 
-Locate the line: 
+In the `SceneDelegate` file, locate the line: 
 
 ```swift
 let mainController = ViewController()
@@ -64,7 +64,7 @@ class PastOrderViewController: UIViewController {
 }
 ```
 
-If you run your app now you’ll notice that there is no way for you to get to the Past Order page to see if it is green or not. We can fix this navigational nightmare by creating a tab bar for your app.
+If you run your app now you’ll notice that there is no way for you to get to the Past Order page to see if it is green or not. We can fix this navigational nightmare by creating a tab bar for the app.
 
 # Creating the TabBarController
 Create a new swift file and name it `TabBarController`, setup the `TabBarController` class to be of type `UITabBarController` and have it conform to the `UITabBarControllerDelegate` protocol.
@@ -165,7 +165,7 @@ If you look at the `mainController` constant once more (last time, I promise) wi
 
 It should now look like the following:
 
-```
+```swift
 let mainController =  TabBarController()
 ```
 

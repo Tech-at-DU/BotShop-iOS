@@ -74,7 +74,7 @@ func setup() {
 }
 ```
 
-Again, remember to call `setup()` in `override init` method!
+Again, remember to call `setup()` in `override init` method or it won't be run!
 
 Now that we have the custom `tableViewCell` setup, let's create the `tableView` that will hold the cells.
 
@@ -85,7 +85,7 @@ Navigate back to the `PastOrderViewController` file and instantiate a `UITableVi
 let tableView =  UITableView()
 ```
 
-Then, register the custom cell we just made inside the  `viewDidLoad()`
+Then, register the custom cell we just made inside the `viewDidLoad()`
 
 ```swift
 tableView.register(PastOrderCell.self, forCellReuseIdentifier: "cell")
@@ -95,7 +95,7 @@ Now outside of the class, create an extension to the `PastOrderViewController` f
 
 Go ahead and click "fix" to add protocol stubs, just like we did when setting up the collectionView in the previous chapter.
 
-For now, we will have `numberOfRowsInSection` have a return value of  10.
+For now, we will have `numberOfRowsInSection` have a return value of 10.
 
 In `cellForRowAt` let's register our custom `tableView` cell and set it up as the cell in the `tableView`.
 
@@ -126,7 +126,7 @@ func setUpTableView(){
     tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
 ```
 
-Remember to call `setUpTableView()` in `viewDidLoad()`
+Remember to call `setUpTableView()` in the `viewDidLoad()` method.
 
 Your file should now look like the following:
 
@@ -177,7 +177,7 @@ extension PastOrderViewController: UITableViewDataSource, UITableViewDelegate {
 
 If you run the app now, you will see an empty `tableView` under the history tab. Currently there is no information in the `tableView` cells and nothing happens when you click on a cell.
 
-What we would like is for there to be an image and a date listed and then we want to be able to click on a cell and see a list of all the items the user bought on that date.
+What we would like is for there to be a box image and a date listed; then we want to be able to click on a cell and see a list of all the items the user bought on that date.
 
 # Push to Github
 

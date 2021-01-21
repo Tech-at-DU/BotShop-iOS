@@ -195,7 +195,7 @@ If you run your app now and head to the history tab, you’ll notice that you’
 
 Something else you might have noticed is the _back button that magically appeared in the navigation controller._
 
-This is a builtin feature that is given when you use stack navigation in programming and was given to you through this line:
+This is a built-in feature that is given when you use stack navigation in programming and was given to you through this line:
 
 ```swift
 self.navigationController?.pushViewController(nextVC, animated: true)

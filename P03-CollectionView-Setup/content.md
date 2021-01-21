@@ -36,13 +36,14 @@ let collectionView: UICollectionView = {
 ```
 
 ## Setup the Data Source and Delegate
-Let's set the `dataSource` and delegate of the collection view in the `viewDidLoad()` method.
+Let's set the `dataSource` and `delegate` of the collection view in the `viewDidLoad()` method.
 
 ```swift
 collectionView.dataSource = self
 collectionView.delegate = self
 ```
-You should immediately see 2 errors:
+
+Don't be alarmed, you should now see 2 errors:
 
 ```swift
 Cannot assign value of type 'NewOrderViewController' to type...
@@ -50,12 +51,12 @@ Cannot assign value of type 'NewOrderViewController' to type...
 
 This is because we have not conformed the class to `UICollectionViewDataSource` and `UICollectionViewDelegate`.
 
-We'll come back to address this issue in a short while.
+We'll come back to address this issue in a short while. Hang on tight! 
 
 ## Adding Constraints
-Let's move forward for now and create a function to set up the view for this page.
+Let's move forward and create a method to set up the view for this page.
 
-This function will constrain the `collectionView` to our screen. Place this below the `viewDidLoad()` method
+This method will constrain the `collectionView` to our screen. Place this below the `viewDidLoad()` method
 
 ```swift
 func setViews(){
@@ -90,7 +91,7 @@ let collectionView: UICollectionView = {
 
 ## Fixing Those Errors
 
-Outside of the `NewOrderViewController` Class, create an extension to instantiate `UICollectionViewDataSource`, `UICollectionViewDelegate` in the `NewOrderViewController`.
+Outside of the `NewOrderViewController` class, create an extension to instantiate `UICollectionViewDataSource`, `UICollectionViewDelegate` in the `NewOrderViewController`.
 
 You will get an error that says this does not conform the the protocol `UICollectionViewDataSource`.
 
@@ -134,7 +135,7 @@ You should see 10 green squares in your New Order page.
 
 ## Editing the Layout of Cells
 
-The items are very small and leave a lot to be desired.
+As it is right now, all the items are very small and leave a lot to be desired.
 
 What we can do is add more functionality to the `collectionView`. We want to change the size of each of the items to be larger and make the most of our `collectionView` so that there isn’t as much negative or empty space.
 
@@ -145,6 +146,8 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
     return CGSize(width: collectionView.frame.width/2.2, height: collectionView.frame.height/3)
 }
 ```
+
+What we're doing here is dynamically programming our collection view to adjust its size based on the size of the iphone screen. 
 
 Run the app again and you’ll see that green squares are larger and filling up more space.
 
@@ -177,7 +180,7 @@ Inside `Item.swift` add the following:
 import Foundation
 import UIKit
 
-struct Item{
+struct Item {
     var title: String
     var image: UIImage
 }
@@ -240,6 +243,7 @@ func setup() {
     stackView.addArrangedSubview(title)
 }
 ```
+
 Remember to call `setup()` within the `override init` method of the cell file, otherwise it will not get called.
 
 At the bottom of your class include the `required init` if you haven't already:
