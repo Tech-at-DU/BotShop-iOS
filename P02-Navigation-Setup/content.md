@@ -14,11 +14,35 @@ Let's start by building out the New Order page, the first page a user will see w
 
 Locate the `ViewController` file that came with your project setup, this is the same page with the red screen from last chapter.
 
-Inside that file, rename the `class ViewController` to `NewOrderViewController`.
+Inside that file, rename the `class ViewController` to `class NewOrderViewController`.
 
 Make sure you change the name in the left hand pane from `ViewController.swift` to `NewOrderViewController.swift`.
 
 Run the app again and make sure you’re still able to see the red screen. We will return to this page again later and add more styling to it.
+
+## Oops!
+
+After you run the app, you should see an error along the lines of:
+
+```
+Cannot find 'ViewController' in scope
+```
+
+Don't worry, errors are our friends and every error gives us an opportunity to learn! This error in particular occurred because we changed the file name from `ViewController` to `NewOrderViewController` and we forgot to update it in our `SceneDelegate` file!
+
+Locate the line: 
+
+```swift
+let mainController = ViewController()
+```
+
+And update it to look like the following: 
+
+```swift
+let mainController = NewOrderViewController()
+```
+
+If you run the app once more, you will see our favorite red screen again. Yay! 
 
 # Displaying the Past Order Page
 Create a new swift file and name it `PastOrderViewController`, setup its class within the file and give the view a background color of green.
@@ -127,33 +151,19 @@ Now, let’s run the app!
 
 # Putting it All Together
 
-## Oops!
+## Another Oops!
 
-After you run the app, you should see an error:
+At this point you might be thinking: We JUST created a tabbar, what happened? It's still this red screen! URRRGHH!
 
-```
-"Use of unresolved identifier <em>View Controller</em>"
-```
+But hey, this problem is looking very familiar. Can you guess why? 
 
-Don't worry, errors are our friends and every error gives us an opportunity to learn! This error in particular occurred because we changed the file name from
-
-```swift
-let mainController = ViewController()
-```
-
-to
-
-```swift
-let mainController = NewOrderViewController()
-```
-
-Let's follow the error and go to the `SceneDelegate.swift` file and update the name from `View Controller` to `NewOrderViewController` and run the app again.
-
-What do you see? You might have noticed that after we run the app we are only be able to see the `NewOrderViewController` page. But we're unable to navigate to the Past Order page. Why is that?
+Peculiar enough, it once again has to do with our `SceneDelegate` file.
 
 ## Launching with TabBar
 
-If you look at the `mainController` constant we created in the beginning of the tutorial within `SceneDelegate`, you'll see that the `mainController` is the first view controller that gets launched. We actually need to change the `mainController` to be the `TabBarController()` in order to give us access to all view controllers within our navigation controller.
+If you look at the `mainController` constant once more (last time, I promise) within `SceneDelegate`, you'll see that the `mainController` is the first view controller that gets launched. We actually need to update the `mainController` to be the `TabBarController()` in order to give us access to all view controllers within our navigation controller.
+
+It should now look like the following:
 
 ```
 let mainController =  TabBarController()
