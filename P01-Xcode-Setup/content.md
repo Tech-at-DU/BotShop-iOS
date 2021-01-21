@@ -27,7 +27,7 @@ In this section you are going to do some project setup in preparation for the re
 
 > [action]
 >
-> Download the [Bot Shop assets](https://github.com/ellojess/bot-shop-iOS/blob/master/Bot%20Images.zip) that have been created for you. Once the download has finished, unpack the zip file, select all the items, and drag it into the project tree on the lefthand side or <em>Project Navigator</em>. Make sure that you have `Copy items if needed` and `Create Groups` selected.
+> Download the [Bot Shop assets](https://github.com/ellojess/bot-shop-iOS/blob/master/Bot%20Images.zip) that have been created for you. Once the download has finished, unpack the zip file, select all the items inside the Bots Image folder, and drag it into the `Assets.xcassets` folder located in the project tree on the lefthand side (also known as the <em>Project Navigator</em>). Make sure that you have `Copy items if needed` and `Create Groups` selected.
 >
 > ![Add Assets Img](../assets/add_assets.png "Adding Assets")
 
