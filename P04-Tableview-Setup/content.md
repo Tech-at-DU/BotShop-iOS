@@ -10,7 +10,7 @@ Similar to how we built out the `collectionView`, let's first build out a custom
 You will notice many similarities in how we set up the `tableViewCell` from setting up our `collectionViewCell`.
 
 ```swift
-import Foundations
+import Foundation
 import UIKit
 
 class PastOrderCell: UITableViewCell{

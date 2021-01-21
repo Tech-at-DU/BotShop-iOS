@@ -253,7 +253,7 @@ required init?(coder: NSCoder) {
 If you run the app now, you’ll see “testing” is written in all of your cells. You might be wondering where the images are.
 
 # Displaying Item Images in Custom Cells
-Let's start this by going back to the `NewOrderViewController` and creating an array of items that utilizes out `Item` model to specify the title and image. This should be found at the towards of the class file.
+Let's start this by going back to the `NewOrderViewController` and creating an array of items that utilizes out `Item` model to specify the title and image. This should be placed towards the top of the class file.
 
 ```swift
 let data = [
@@ -268,7 +268,7 @@ let data = [
 
 Let’s update our collectionView with our new data.
 
-Update `numberOfItemsInSection` to:
+Update `numberOfItemsInSection` in the extension to the following:
 
 ```swift
 return data.count
