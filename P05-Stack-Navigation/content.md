@@ -61,6 +61,7 @@ Back to our `PastOrderCell.swift` file we need a couple of helper function to he
 Add these two helper methods after the `setup()` method.
 
 ```swift
+
 func setCellContents(item: Item){
     itemImage.image = item.image
     title.text = item.title
@@ -102,7 +103,7 @@ extension PastOrderViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PastOrderCell
             cell.accessoryType = .disclosureIndicator
             cell.selectionStyle = .none
-            cell.setCellContents(item: orders[indexPath.row])
+            cell.setBoxContents(box: orders[indexPath.row])
         return cell
     }
 
@@ -169,7 +170,7 @@ extension OrderList: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PastOrderCell
             cell.accessoryType = .disclosureIndicator
             cell.selectionStyle = .none
-            cell.setCellContents(item: orders[indexPath.row])
+            cell.setBoxContents(box: orders[indexPath.row])
         return cell
     }
 

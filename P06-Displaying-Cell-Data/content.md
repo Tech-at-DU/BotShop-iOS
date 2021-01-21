@@ -25,14 +25,14 @@ Let's head to the `PastOrderViewController.swift` file and comment out the `orde
 
 Since we also had the `orders` specified in `OrderList.swift`, be sure to comment it out there as well.
 
-Instead, let's create a new variable for orders and have it be an empty array.
+Instead, let's create a new variable for orders and have it be an empty array in both files.
 
 ```swift
  var orders: [Order] = []
 ```
 
 ## Associating Items by Dates
-Here, we'll be creating a function that will handle the items within the orders. Place this after the `setUpTableView()` method.
+Continuing in `PastOrderViewController.swift`, we'll be creating a function that will handle the items within the orders. Place this after the `setUpTableView()` method.
 
 Let's create a  `getItems()` function
 
@@ -71,7 +71,31 @@ for box in ordersList {
 }
 ```
 
+Your `getItems()` method should look like the following: 
+
+```swift
+    func getItems(){
+        let robot1 = Item(title: "Respiratory", image: UIImage(named: "robot1")!)
+        let robot2 = Item(title: "Muscular", image: UIImage(named: "robot2")!)
+        let robot3 = Item(title: "Endocrine", image: UIImage(named: "robot3")!)
+        let robot4 = Item(title: "Excretory", image: UIImage(named: "robot4")!)
+        let robot5 = Item(title: "Lymphatic", image: UIImage(named: "robot5")!)
+        let robot6 = Item(title: "Nervous", image: UIImage(named: "robot6")!)
+
+        let ordersList = [Order(title: "July 2020", image: UIImage(named: "box")!, items: [robot1, robot3]),
+                        Order(title: "June 2020", image: UIImage(named: "box")!, items: [robot2, robot3, robot6]),
+                        Order(title: "May 2020", image: UIImage(named: "box")!, items: [robot4, robot1]),
+                        Order(title: "December 2019", image: UIImage(named: "box")!, items: [robot2, robot5, robot6])
+        ]
+        
+        for box in ordersList {
+            orders.append(box)
+        }
+    }
+```
+
 Remember to call `getItems()` in the `viewDidLoad()` method!
+
 
 # Viewing Items in Order List
 
@@ -116,9 +140,7 @@ var currentOrder: Order!
 
 # Updating Order List to Display Items Instead of Dates
 
-In the `OrderList.swift` file, you should have two errors saying 'orders' is undefined. This is because we moved the orders array earlier.
-
-At the top of the class create an array to old the items:
+At the top of the class in the `OrderList.swift`, create an array to old the items:
 
 ```swift
 var orderItems: [Item] = []
@@ -152,7 +174,7 @@ extension OrderList: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PastOrderCell
             cell.accessoryType = .disclosureIndicator
             cell.selectionStyle = .none
-            cell.setCellContents(item: orderItems[indexPath.row])
+            cell.setCellContents(item: currentOrder.items[indexPath.row])
         return cell
     }
 
