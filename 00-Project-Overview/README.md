@@ -5,6 +5,7 @@ It’s the year 3000 and the everyday person is now 75% machine and requires the
 As the only iOS developer capable for such an important task, you will have the best equipment and tools available to you to create a 100% programmatic native iOS app using Swift and Xcode.
 
 # Why Is This Important
+
 Aside from saving billions of people by giving them access to the microbots they need; programmatic Swift iOS applications are an industry standard that allow for more speed, power, and control in the mobile development process. In hand with programmatic iOS development, tab bars are a handy tool that enable users to navigate apps.
 
 > [action]
@@ -12,6 +13,7 @@ Aside from saving billions of people by giving them access to the microbots they
 
 
 # Who Is This For?
+
 iOS beginners who already have some experience with Xcode and are familiar with coding in Swift.
 
 **What You Should Already Know**
@@ -46,9 +48,11 @@ By the end of this tutorial, you should be able to...
 > Take a moment to write down these learning outcomes and reflect on them. Make sure that as you progress through the tutorial that you're furthering your understanding, and that by the end, you have completed all of the outcomes.
 
 # What We're Building
+
 At the end of this tutorial you will have built your own mobile shopping app!
 
-## New Order Page  
+## New Order Page 
+ 
 ![New Order Screen Img](../assets/new-screen.png "Finished New Order Screen")
 
 The New Order page is made up of a collection view and shows the items that can be purchased. Each cell in the collection view is a custom cell that includes an image and label within a vertical stackview.
