@@ -143,3 +143,7 @@ Now go to GitHub and create a public repository called `Bot-Shop`, and now assoc
 $ git remote add origin GITHUB-REPO-URL
 $ git push origin main -u
 ```
+
+# Continue to the next section
+
+- [02-Navigation-Setup](02-Navigation-Setup/README.md)

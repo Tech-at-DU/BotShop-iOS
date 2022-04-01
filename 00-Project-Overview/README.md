@@ -104,3 +104,7 @@ User stories is a tool used in agile software development to capture a feature o
 
 # If You Get Stuck
 Getting stuck when coding (and debugging) is a natural part of the programming process. If you find yourself stuck on a problem or lost, feel free to take a break, get some water, take a walk, and come back with a fresh mind. Then retrace your steps in the tutorial. Make sure you've follow each step of the tutorial. It's easy to make typos or to accidentally skip over important steps.
+
+# Continue to the next section
+
+[01-Xcode-Setup](01-Xcode-Setup/README.md)

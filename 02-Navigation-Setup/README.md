@@ -188,3 +188,7 @@ $ git commit -m “Users can navigate between pages using tabbar”
 
 
 Great progress so far! We now have our navigation setup. Our app still looks a bit lack-luster, let's continue to build out our pages.
+
+# Continue to the next section
+
+- [03-CollectionView-Setup](03-CollectionView-Setup/README.md)

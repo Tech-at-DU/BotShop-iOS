@@ -211,3 +211,7 @@ Oof, see, if it’s this hard to wrap your mind around then it definitely needs 
 $ git add .
 $ git commit -m “Implement stack navigation”
 ```
+
+# Continue to the next section
+
+- [06-Displaying-Cell-Data](06-Displaying-Cell-Data/README.md)

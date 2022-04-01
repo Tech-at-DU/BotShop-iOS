@@ -307,3 +307,7 @@ If you run the app now you should see the robot images and their proper names di
 $ git add .
 $ git commit -m “Users can see items for sale in collection view”
 ```
+
+# Continue to the next section
+
+- [04-Tableview-Setup](04-Tableview-Setup/README.md)
