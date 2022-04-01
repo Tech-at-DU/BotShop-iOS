@@ -58,6 +58,12 @@ At the top of the class you should see:
 
 Within the same file, locate:
 
+```Swift
+guard let _ = (scene as? UIWindowScene) else { return }
+```
+
+Remove this line and replace it with the following: 
+
 ```swift
 func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions)
 ```
@@ -79,24 +85,25 @@ window?.makeKeyAndVisible()
 window?.windowScene = windowScene
 ```
 
-# Making Sure We're On Track
-For testing purposes, let's open the ```ViewController.swift``` file and set the background color to something of your choosing. This code will go within the `viewDidLoad()` method.
+# Making Sure you're On Track
+
+For testing purposes, let's open the `ViewController.swift` file and set the background color to something of your choosing. This code will go within the `viewDidLoad()` method.
 
 See if you can remember how to change the background color of the view off the top of your head! Once you try, you can check against the solution below
 
 > [solution]
->
+
 ```swift
 import UIKit
->
+
 class ViewController: UIViewController {
->
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.backgroundColor = .red
     }
->
+
 }
 ```
 
