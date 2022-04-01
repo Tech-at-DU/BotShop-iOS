@@ -107,4 +107,4 @@ Getting stuck when coding (and debugging) is a natural part of the programming p
 
 # Continue to the next section
 
-[01-Xcode-Setup](01-Xcode-Setup/README.md)
+[01-Xcode-Setup](../01-Xcode-Setup/README.md)

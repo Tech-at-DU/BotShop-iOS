@@ -214,4 +214,4 @@ $ git commit -m “Implement stack navigation”
 
 # Continue to the next section
 
-- [06-Displaying-Cell-Data](06-Displaying-Cell-Data/README.md)
+- [06-Displaying-Cell-Data](../06-Displaying-Cell-Data/README.md)

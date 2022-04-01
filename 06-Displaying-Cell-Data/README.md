@@ -194,4 +194,4 @@ $ git commit -m “Users can see items from past orders”
 
 # Continue to the next section
 
-- [07-Styling](07-Styling/README.md)
+- [07-Styling](../07-Styling/README.md)

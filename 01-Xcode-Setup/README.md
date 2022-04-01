@@ -146,4 +146,4 @@ $ git push origin main -u
 
 # Continue to the next section
 
-- [02-Navigation-Setup](02-Navigation-Setup/README.md)
+- [02-Navigation-Setup](../02-Navigation-Setup/README.md)

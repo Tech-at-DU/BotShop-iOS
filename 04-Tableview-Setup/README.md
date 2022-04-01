@@ -189,4 +189,4 @@ $ git commit -m “Build out basic table view”
 
 # Continue to the next section
 
-- [05-Stack-Navigation](05-Stack-Navigation/README.md)
+- [05-Stack-Navigation](../05-Stack-Navigation/README.md)

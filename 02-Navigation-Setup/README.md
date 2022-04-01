@@ -191,4 +191,4 @@ Great progress so far! We now have our navigation setup. Our app still looks a b
 
 # Continue to the next section
 
-- [03-CollectionView-Setup](03-CollectionView-Setup/README.md)
+- [03-CollectionView-Setup](../03-CollectionView-Setup/README.md)
