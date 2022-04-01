@@ -1,7 +1,4 @@
----
-title: "Getting Started with Xcode"
-slug: getting-started
----
+# Getting Started with Xcode
 
 In this section, we'll get introduced to our new Xcode project and start working on implementing our Bot Shop design. It may look pretty bare bones at first but we'll be following standards of agile development to get the job done!
 

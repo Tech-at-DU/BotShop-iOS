@@ -1,7 +1,4 @@
----
-title: Populating TableView and Creating Stack Navigation
-slug: populate-cells-with-stack-navigation
----
+# Populating TableView and Creating Stack Navigation
 
 In this section we will be building out another kind of navigation type on top of the `TabBar` navigation we already have built out. **Stack navigation** is something you're most likely already familiar with, it's what comes builtin with storyboard's Navigation Controller. To illustrate, let's take a look at this diagram.
 

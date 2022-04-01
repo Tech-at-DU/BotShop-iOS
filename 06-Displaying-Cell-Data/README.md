@@ -1,7 +1,4 @@
----
-title: Displaying Items Based On Order
-slug: displaying-items-in-past-orders
----
+# Displaying Items Based On Order
 
 Right now our app has two tableViews in a navigation stack that displays the various dates of orders that have been made in the past. What we would like is to be able to click on a date, then see a list of all the items that were bought on that date.
 

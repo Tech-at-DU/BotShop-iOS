@@ -1,7 +1,5 @@
----
-title: Users Can See TableView
-slug: table-view-setup
----
+# Users Can See TableView
+
 Right now when the history tab brings us to an empty green page. We want to be able to see a list of dates that show the users past orders. We then want to be able to click on one of the cells and be brought to another page that shows us the list of all the bots that were bought during that order.
 
 # Creating a Custom TableView Cell

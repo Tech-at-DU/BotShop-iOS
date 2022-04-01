@@ -1,7 +1,5 @@
----
-title: Users Can See Items For Sale
-slug: collection-view-implementation
----
+# Users Can See Items For Sale
+
 In this section we will be creating custom cells to populate the collection view with in order to display the items for sale in the New Order page.
 
 # Creating Custom Cells for the Collection View

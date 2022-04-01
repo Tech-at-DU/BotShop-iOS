@@ -1,7 +1,4 @@
----
-title: "Navigating Between Pages With Tabbar"
-slug: navigating-between-pages
----
+# Navigating Between Pages With Tabbar
 
 In this section we will be incorporating agile development by setting up all the pages all at once and building out the navigation between pages in the app.
 

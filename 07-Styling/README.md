@@ -1,7 +1,4 @@
----
-title: Styling The App
-slug: adding-style
----
+# Styling The App
 
 Currently the app has a bulky design and an oddly X-mas color scheme to it. This is mainly to help you see how various parts come to be during development.
 
