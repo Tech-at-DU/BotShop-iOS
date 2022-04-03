@@ -93,7 +93,13 @@ let collectionView: UICollectionView = {
 
 ## Fixing Those Errors
 
-Outside of the `NewOrderViewController` class, create an extension to instantiate `UICollectionViewDataSource`, `UICollectionViewDelegate` in the `NewOrderViewController`.
+Outside of the `NewOrderViewController` class, create an extension to instantiate `UICollectionViewDataSource`, `UICollectionViewDelegate` in the `NewOrderViewController`. An extension allows you to add new functionality to classes, protocols, and structs. 
+
+```swift
+extension NewOrderViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+  
+}
+```
 
 You will get an error that says this does not conform the the protocol `UICollectionViewDataSource`.
 
