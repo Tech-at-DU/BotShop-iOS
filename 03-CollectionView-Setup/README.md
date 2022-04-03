@@ -324,6 +324,8 @@ var data: Item? {
 
 If you run the app now you should see the robot images and their proper names displayed in the collectionvVew.
 
+Note! `data` is using setter function `didSet`. When the variable is the code in the setter function is run. This allows you to use the data to update other properties when this variable is set. Read more about setters here: https://docs.swift.org/swift-book/LanguageGuide/Properties.html
+
 # Push to Github
 
 >[action]
