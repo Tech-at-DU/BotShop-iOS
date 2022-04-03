@@ -29,9 +29,13 @@ let collectionView: UICollectionView = {
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
     collectionView.translatesAutoresizingMaskIntoConstraints = false
 
-    return collectionView
+    return collectionView `collectionView`.
 }()
 ```
+
+Put this at the top of the `NewOrderViewController` class definition. 
+
+In this step you are defining an anonymous function, immediately invoking the function, and assigning the return value to 
 
 ## Setup the Data Source and Delegate
 Let's set the `dataSource` and `delegate` of the collection view in the `viewDidLoad()` method.
