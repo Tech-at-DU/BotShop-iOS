@@ -231,6 +231,22 @@ override init(frame: CGRect) {
 }
 ```
 
+Notice you are using closures/anonymous functions to initialize these variables. You could have declared them like this: 
+
+```Swift
+class Example {
+  var myImageView: UImage
+  
+  func viewDidLoad() {
+    myImageView = UIImageView()
+    myImageView.translatesAutoresizingMaskIntoConstraints = false
+    ...
+  }
+}
+```
+
+Using this method you have to break up the initialization of this variable and the instance it contains into two steps. Using the method above you can initialize everything in one step! 
+
 ## Adding Constraints
 Similar to what we did when setting up the collection view, let's create another setup method in the `NewItemCell` file to arrange the image and title within the stackview of the cell.
 
