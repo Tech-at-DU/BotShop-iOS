@@ -3,6 +3,7 @@
 Right now when the history tab brings us to an empty green page. We want to be able to see a list of dates that show the users past orders. We then want to be able to click on one of the cells and be brought to another page that shows us the list of all the bots that were bought during that order.
 
 # Creating a Custom TableView Cell
+
 Similar to how we built out the `collectionView`, let's first build out a custom `tableViewCell` for our `tableView` to use later on. Each `tableViewCell` will hold a label and image. Create a new file and name it `PastOrderCell.swift`
 
 You will notice many similarities in how we set up the `tableViewCell` from setting up our `collectionViewCell`.
