@@ -77,7 +77,8 @@ Again, remember to call `setup()` in `override init` method or it won't be run!
 Now that we have the custom `tableViewCell` setup, let's create the `tableView` that will hold the cells.
 
 # Building Out The TableView
-Navigate back to the `PastOrderViewController` file and instantiate a `UITableView` object.
+
+Navigate back to the `PastOrderViewController` class instantiate a `UITableView` object.
 
 ```swift
 let tableView =  UITableView()
