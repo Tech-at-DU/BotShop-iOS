@@ -93,7 +93,20 @@ tableView.register(PastOrderCell.self, forCellReuseIdentifier: "cell")
 
 Now outside of the class, create an extension to the `PastOrderViewController` for the `UITableViewDataSource` and `UITableViewDelegate`.
 
-Go ahead and click "fix" to add protocol stubs, just like we did when setting up the collectionView in the previous chapter.
+Go ahead and click "fix" to add protocol stubs, just like we did when setting up the collectionView in the previous chapter. Should look like this. You if "fix doesn't work you can add these yourself: 
+
+```Swift
+extension PastOrderViewController: UITableViewDelegate, UITableViewDataSource {
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+  }
+
+}
+```
 
 For now, we will have `numberOfRowsInSection` have a return value of 10.
 
