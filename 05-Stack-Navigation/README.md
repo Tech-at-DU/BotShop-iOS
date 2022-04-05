@@ -128,13 +128,15 @@ import UIKit
 
 class OrderList: UIViewController {
 
-    let orders = [Order(title: "July 2020", image: UIImage(named: "box")!),
-    Order(title: "June 2020", image: UIImage(named: "box")!),
-    Order(title: "May 2020", image: UIImage(named: "box")!),
-    Order(title: "December 2019", image: UIImage(named: "box")!),
-    Order(title: "November 2019", image: UIImage(named: "box")!),
-    Order(title: "October 2019", image: UIImage(named: "box")!),
-    Order(title: "September 2019", image: UIImage(named: "box")!)]
+    let orders = [
+        Order(title: "July 2020", image: UIImage(named: "box")!),
+        Order(title: "June 2020", image: UIImage(named: "box")!),
+        Order(title: "May 2020", image: UIImage(named: "box")!),
+        Order(title: "December 2019", image: UIImage(named: "box")!),
+        Order(title: "November 2019", image: UIImage(named: "box")!),
+        Order(title: "October 2019", image: UIImage(named: "box")!),
+        Order(title: "September 2019", image: UIImage(named: "box")!)
+    ]
 
     let tableView =  UITableView()
 
