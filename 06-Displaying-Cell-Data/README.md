@@ -128,10 +128,10 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 You should now have an error that says:
 
 ```
-Value of type 'OrderList' has no member 'currentOrder'
+Value of type 'NewOrderViewController' has no member 'currentOrder'
 ```
 
-Let's go to the `OrderList.swift file` and add this towards the top of the class:
+Let's go to the `NewOrderViewController.swift file` and add this towards the top of the class:
 
 ```swift
 var currentOrder: Order!
