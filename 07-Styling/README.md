@@ -4,7 +4,7 @@ Currently the app has a bulky design and an oddly X-mas color scheme to it. This
 
 In this section, you will be customizing the app further and making it your own.
 
-# Adding Custom Colors
+## Adding Custom Colors
 Having a nice color scheme can do a lot to make your app feel more put together and polished. You can check out websites like:
 
 - [Color Hunt](https://colorhunt.co/)
@@ -39,7 +39,7 @@ Similarly, we can also change the color of the backgrounds so that each screen h
 self.view.backgroundColor = UIColor(red:0.49, green:0.84, blue:0.87, alpha:1.0)
 ```
 
-# Adding a Custom Font
+## Adding a Custom Font
 You can also customize the font within your app! Check out some of the fonts in the following resources and pick at least 1 that you'd like to try implementing into your app.
 
 - [Google Fonts](https://fonts.google.com/)
@@ -55,13 +55,13 @@ title.font = UIFont(name: "AvenirNext-Bold", size: 20)
 >
 > Go ahead and have fun customizing the app and really making it your own!
 
-# Feedback and Review - 2 minutes
+<!-- # Feedback and Review - 2 minutes
 
 **We promise this won't take longer than 2 minutes!**
 
 Please take a moment to rate your understanding of the learning outcomes from this tutorial, and how we can improve it via our [tutorial feedback form](https://forms.gle/ajxuqPxeEnW8gNX77)
 
-This allows us to get feedback on how well the students are grasping the learning outcomes, and tells us where we can improve the tutorial experience.
+This allows us to get feedback on how well the students are grasping the learning outcomes, and tells us where we can improve the tutorial experience. -->
 
 # Push to Github
 
