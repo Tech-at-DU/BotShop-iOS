@@ -168,9 +168,9 @@ extension OrderList: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PastOrderCell
-            cell.accessoryType = .disclosureIndicator
-            cell.selectionStyle = .none
-            cell.setBoxContents(box: orders[indexPath.row])
+        cell.accessoryType = .disclosureIndicator
+        cell.selectionStyle = .none
+        cell.setBoxContents(box: orders[indexPath.row])
         return cell
     }
 
