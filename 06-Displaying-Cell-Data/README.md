@@ -53,10 +53,11 @@ let robot6 = Item(title: "Nervous", image: UIImage(named: "robot6")!)
 Below the possible items, let's create the list of Orders and determine which items were bought on which date. Feel free to play around with this part as you'd like.
 
 ```swift
-let ordersList = [Order(title: "July 2020", image: UIImage(named: "box")!, items: [robot1, robot3]),
-                Order(title: "June 2020", image: UIImage(named: "box")!, items: [robot2, robot3, robot6]),
-                Order(title: "May 2020", image: UIImage(named: "box")!, items: [robot4, robot1]),
-                Order(title: "December 2019", image: UIImage(named: "box")!, items: [robot2, robot5, robot6])
+let ordersList = [
+    Order(title: "July 2020", image: UIImage(named: "box")!, items: [robot1, robot3]),
+    Order(title: "June 2020", image: UIImage(named: "box")!, items: [robot2, robot3, robot6]),
+    Order(title: "May 2020", image: UIImage(named: "box")!, items: [robot4, robot1]),
+    Order(title: "December 2019", image: UIImage(named: "box")!, items: [robot2, robot5, robot6])
 ]
 ```
 
@@ -79,10 +80,11 @@ Your `getItems()` method should look like the following:
         let robot5 = Item(title: "Lymphatic", image: UIImage(named: "robot5")!)
         let robot6 = Item(title: "Nervous", image: UIImage(named: "robot6")!)
 
-        let ordersList = [Order(title: "July 2020", image: UIImage(named: "box")!, items: [robot1, robot3]),
-                        Order(title: "June 2020", image: UIImage(named: "box")!, items: [robot2, robot3, robot6]),
-                        Order(title: "May 2020", image: UIImage(named: "box")!, items: [robot4, robot1]),
-                        Order(title: "December 2019", image: UIImage(named: "box")!, items: [robot2, robot5, robot6])
+        let ordersList = [
+            Order(title: "July 2020", image: UIImage(named: "box")!, items: [robot1, robot3]),
+            Order(title: "June 2020", image: UIImage(named: "box")!, items: [robot2, robot3, robot6]),
+            Order(title: "May 2020", image: UIImage(named: "box")!, items: [robot4, robot1]),
+            Order(title: "December 2019", image: UIImage(named: "box")!, items: [robot2, robot5, robot6])
         ]
         
         for box in ordersList {
@@ -110,7 +112,7 @@ cell.setBoxContents(box: orders[indexPath.row])
 
 With the information in the cells set, all that's left to do is to display the information after a user selects a date to view from.
 
-In the `didSelectRowAt` method, update it to the following:
+Add a new method to the extension at the bottom of `PastOrderViewController`. This will be `didSelectRowAt` which is really `tableView(_:didSelectRowAt)`. You can search for it by typeing: `didSelectRowAt`.
 
 ```swift
 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
