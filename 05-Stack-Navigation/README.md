@@ -44,13 +44,14 @@ Now that we have more room to work with, let's go forward with utilizing our `Or
 Place this towards the top of your `PastOrderViewController.swift` file.
 
 ```swift
-let orders = [Order(title: "July 2020", image: UIImage(named: "box")!),
-                Order(title: "June 2020", image: UIImage(named: "box")!),
-                Order(title: "May 2020", image: UIImage(named: "box")!),
-                Order(title: "December 2019", image: UIImage(named: "box")!),
-                Order(title: "November 2019", image: UIImage(named: "box")!),
-                Order(title: "October 2019", image: UIImage(named: "box")!),
-                Order(title: "September 2019", image: UIImage(named: "box")!)]
+let orders = [
+    Order(title: "July 2020", image: UIImage(named: "box")!),
+    Order(title: "June 2020", image: UIImage(named: "box")!),
+    Order(title: "May 2020", image: UIImage(named: "box")!),
+    Order(title: "December 2019", image: UIImage(named: "box")!),
+    Order(title: "November 2019", image: UIImage(named: "box")!),
+    Order(title: "October 2019", image: UIImage(named: "box")!),
+    Order(title: "September 2019", image: UIImage(named: "box")!)]
 ```
 
 Back to our `PastOrderCell.swift` file we need a couple of helper function to help us connect the pieces together, just as we did in our `collectionView`.
@@ -59,7 +60,7 @@ Add these two helper methods after the `setup()` method.
 
 ```swift
 
-func setCellContents(item: Item){
+func setCellContents(item: Order){
     itemImage.image = item.image
     title.text = item.title
 }
