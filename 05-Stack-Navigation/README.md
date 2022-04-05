@@ -9,7 +9,7 @@ A navigation controller object manages its child view controllers using an order
 What we'll be doing moving forward is setting our History page as the root controller in this stack navigation and then creating a Order List page that will be the child to the history page, meaning users will only be able to access it through the History page.
 
 
-# Creating Order Model
+## Creating Order Model
 Let's create a model for the past orders. Create a new Swift file and name it `Order.swift`.
 
 Within the file, add:
@@ -24,7 +24,7 @@ struct Order {
 }
 ```
 
-# Adding Some Style to the TableView
+## Adding Some Style to the TableView
 Now let's head back to our `PastOrderViewController` file.
 
 If you run your app now, you will notice that there is not a lot of room in our `tableViewCell` to display all the information we'd like to display.
@@ -38,7 +38,7 @@ func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->
 ```
 If you run the app again, you’ll see that the `tableViewCell` are now taller than before.
 
-# Implementing Stack Navigation
+## Implementing Stack Navigation
 Now that we have more room to work with, let's go forward with utilizing our `Order` model to create objects to fill our cells with.
 
 Place this towards the top of your `PastOrderViewController.swift` file.
@@ -53,6 +53,8 @@ let orders = [
     Order(title: "October 2019", image: UIImage(named: "box")!),
     Order(title: "September 2019", image: UIImage(named: "box")!)]
 ```
+
+Note! Check that you have an image named "box" in your xcassests! Without this the code above will fail as it tries to unwrap the UIImage! 
 
 Back to our `PastOrderCell.swift` file we need a couple of helper function to help us connect the pieces together, just as we did in our `collectionView`.
 
@@ -114,7 +116,7 @@ extension PastOrderViewController: UITableViewDataSource, UITableViewDelegate {
 
 Before we’re able to do this, we will need to create a new page to hold the list of items depending on which past order the user would like to view.
 
-# Creating Order List Page to See Items Bought in the Past
+## Creating Order List Page to See Items Bought in the Past
 
 Create a new swift file and name it `OrderList.swift`
 
@@ -180,6 +182,8 @@ extension OrderList: UITableViewDataSource, UITableViewDelegate {
 
 }
 ```
+
+The code above reprises everthing that we just did but in a new view controller. It sets up a tableview and provides a list of data to display. This list is a placeholder for now. Later the list will be dynamic. 
 
 Now let's go back to the `PastOrderViewController` file and add this to the bottom of the extension:
 
