@@ -25,6 +25,8 @@ After finding a color you'd like to use, take the RGB components of it and input
 UIColor(red:0.49, green:0.84, blue:0.87, alpha:1.0)
 ```
 
+The `UIColor` object generates a color from Red, Green, Blue, and alpha components. The values range from 0.0 to 1.0 for each. This is similar to the CSS `rgba()` color. The rgba color uses values from 0 to 255. 
+
 ## Changing Tabbar Color
 For instance, if you wanted to change the highlight of the `TabBar` when a user clicks on a `TabBar` icon, you could input a similar line of code into the `viewDidLoad()` of your `TabBarController.swift` file.
 
