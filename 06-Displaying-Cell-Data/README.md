@@ -2,7 +2,7 @@
 
 Right now our app has two tableViews in a navigation stack that displays the various dates of orders that have been made in the past. What we would like is to be able to click on a date, then see a list of all the items that were bought on that date.
 
-# Adding Items to the Order
+## Adding Items to the Order
 First thing's first, we need to associate the `Item` and `Order` models; let's open the `Order.swift` file.
 
 Within the file, add: `var items: [Item]`
@@ -17,7 +17,7 @@ struct Order {
 }
 ```
 
-# Refactor Order to Display Items
+## Refactor Order to Display Items
 Let's head to the `PastOrderViewController.swift` file and comment out the `orders` constant we had made in the previous chapter.
 
 Since we also had the `orders` specified in `OrderList.swift`, be sure to comment it out there as well.
@@ -28,7 +28,7 @@ Instead, let's create a new variable for orders and have it be an empty array in
  var orders: [Order] = []
 ```
 
-## Associating Items by Dates
+### Associating Items by Dates
 Continuing in `PastOrderViewController.swift`, we'll be creating a function that will handle the items within the orders.
 
 Let's create a `getItems()` function and place it after the `setUpTableView()` method.
@@ -94,7 +94,7 @@ Your `getItems()` method should look like the following:
 Remember to call `getItems()` in the `viewDidLoad()` method!
 
 
-# Viewing Items in Order List
+## Viewing Items in Order List
 
 Locate the `cellForRowAt` function in the `PastOrderViewController` file and add the following line of code to display the dates in the Past Order Page:
 
@@ -121,7 +121,7 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 }
 ```
 
-## More Errors
+### More Errors
 
 You should now have an error that says:
 
@@ -135,7 +135,7 @@ Let's go to the `OrderList.swift file` and add this towards the top of the class
 var currentOrder: Order!
 ```
 
-# Updating Order List to Display Items Instead of Dates
+## Updating Order List to Display Items Instead of Dates
 
 At the top of the class in the `OrderList.swift`, create an array to old the items:
 
