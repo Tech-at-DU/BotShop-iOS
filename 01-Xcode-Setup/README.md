@@ -6,7 +6,7 @@ In this section, we'll get introduced to our new Xcode project and start working
 
 In this section you are going to do some project setup in preparation for the rest of the tutorial.
 
-# Create a New Xcode Project
+## Create a New Xcode Project
 
 > [action]
 >
@@ -20,7 +20,7 @@ In this section you are going to do some project setup in preparation for the re
 >
 > ![New Project Img](../assets/new-project2.png "Creating a New Project")
 
-# Import Resources for Project
+## Import Resources for Project
 
 > [action]
 >
@@ -28,8 +28,9 @@ In this section you are going to do some project setup in preparation for the re
 >
 > ![Add Assets Img](../assets/add_assets.png "Adding Assets")
 
-# Remove Storyboard
-## Clean All Instances of "Main"
+## Remove Storyboard
+
+### Clean All Instances of "Main"
 Find the `Main.storyboard` file on your Project Navigator.
 
 Right click on the file and delete it. Make sure to click `Move to Trash`.
@@ -46,7 +47,7 @@ Now remove any instances of Main that appears by clicking on the minus `( - )` s
 
 Otherwise, you can right click the cell and select 'delete', remember to always click ```Move to Trash``` with any instances from the project.
 
-# Creating a Main Controller Programmatically
+## Creating a Main Controller Programmatically
 
 We need to tell Xcode what to launch now that we have removed all references to `Main.storyboard`.
 
@@ -85,7 +86,7 @@ window?.makeKeyAndVisible()
 window?.windowScene = windowScene
 ```
 
-# Making Sure you're On Track
+## Making Sure you're On Track
 
 For testing purposes, let's open the `ViewController.swift` file and set the background color to something of your choosing. This code will go within the `viewDidLoad()` method.
 
@@ -114,7 +115,7 @@ We used red for our test color. Run your app now and you should see a red (or wh
 If you see red or your designated color, then congratulations! You're on your way to developing your first fully programmatic iOS mobile application.
 
 
-# Using Git/GitHub
+## Using Git/GitHub
 
 As you go through this tutorial, you will also be making commits after completing milestones. This is a requirement, you must make a commit whenever the tutorial prompts you. This not only further enforces best practices for software engineering, but also will help you more easily figure out where a bug originated from if you break your progress up into discrete, trackable chunks.
 
