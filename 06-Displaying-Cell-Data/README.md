@@ -117,7 +117,7 @@ Add a new method to the extension at the bottom of `PastOrderViewController`. Th
 ```swift
 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     print("selected!")
-    let nextVC: OrderList = OrderList()
+    let nextVC: NewOrderViewController = NewOrderViewController()
     nextVC.currentOrder = orders[indexPath.row]
     self.navigationController?.pushViewController(nextVC, animated: true)
 }
