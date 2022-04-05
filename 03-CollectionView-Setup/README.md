@@ -2,7 +2,7 @@
 
 In this section we will be creating custom cells to populate the collection view with in order to display the items for sale in the New Order page.
 
-# Creating Custom Cells for the Collection View
+## Creating Custom Cells for the Collection View
  Each cell will hold a single item for display. Create a new swift file called `NewItemCell`.
 
  ```swift
@@ -14,7 +14,7 @@ class NewItemCell: UICollectionViewCell {
 }
 ```
 
-# Creating the Collection View to Hold Items
+## Creating the Collection View to Hold Items
 
 Navigate to the `NewOrderViewController.swift`
 
@@ -37,7 +37,7 @@ Put this at the top of the `NewOrderViewController` class definition.
 
 In this step you are defining an anonymous function, immediately invoking the function, and assigning the return value to 
 
-## Setup the Data Source and Delegate
+### Setup the Data Source and Delegate
 Let's set the `dataSource` and `delegate` of the collection view in the `viewDidLoad()` method.
 
 ```swift
@@ -55,7 +55,7 @@ This is because we have not conformed the class to `UICollectionViewDataSource` 
 
 We'll come back to address this issue in a short while. Hang on tight! 
 
-## Adding Constraints
+### Adding Constraints
 Let's move forward and create a method to set up the view for this page.
 
 This method will constrain the `collectionView` to our screen. Place this below the `viewDidLoad()` method
@@ -74,7 +74,7 @@ func setViews(){
 
 Remember to call `setViews()` in the `viewDidLoad()` method.
 
-# Visualizing the Collection View
+## Visualizing the Collection View
 Inside the `collectionView` instantiation, register the custom cell we just created.
 
 ```swift
@@ -91,7 +91,7 @@ let collectionView: UICollectionView = {
 }()
 ```
 
-## Fixing Those Errors
+### Fixing Those Errors
 
 Outside of the `NewOrderViewController` class, create an extension to instantiate `UICollectionViewDataSource`, `UICollectionViewDelegate` in the `NewOrderViewController`. An extension allows you to add new functionality to classes, protocols, and structs. 
 
@@ -141,7 +141,7 @@ Run the app now.
 
 You should see 10 green squares in your New Order page.
 
-## Editing the Layout of Cells
+### Editing the Layout of Cells
 
 As it is right now, all the items are very small and leave a lot to be desired.
 
@@ -164,7 +164,7 @@ Run the app again and you’ll see that green squares are larger and filling up 
 
 We’re now a step closer to what we’d like our collection view to look like! Great work!
 
-# Push to Github
+## Push to Github
 
 >[action]
 > Let’s commit!
@@ -175,10 +175,11 @@ $ git commit -m “Set up basic collection view”
 ```
 
 
-# Adding Details to Collection View Cells
+
+## Adding Details to Collection View Cells
 It’s great that we have our green squares, we’re proud they exist. But they’ve done their jobs and now it’s time for us to improve these green squares to showcase our lovely robots!
 
-## Creating Item Model
+### Creating Item Model
 Let's start by creating a model for our items.
 Click and create a new swift file called `Item`.
 
@@ -194,7 +195,7 @@ struct Item {
 }
 ```
 
-## Setting Up Inside of Custom Cell
+### Setting Up Inside of Custom Cell
 Let's go back to our `NewItemCell` file and set up the elements that will make up our cell.
 
 Within the cell, we will have an image and a title vertically stacked together. Let's go ahead and instantiate our stackview, image, and title.
@@ -247,7 +248,7 @@ class Example {
 
 Using this method you have to break up the initialization of this variable and the instance it contains into two steps. Using the method above you can initialize everything in one step! 
 
-## Adding Constraints
+### Adding Constraints
 Similar to what we did when setting up the collection view, let's create another setup method in the `NewItemCell` file to arrange the image and title within the stackview of the cell.
 
 Add this block after the `override init()` method.
@@ -280,7 +281,7 @@ required init?(coder: NSCoder) {
 
 If you run the app now, you’ll see “testing” is written in all of your cells. You might be wondering where the images are.
 
-# Displaying Item Images in Custom Cells
+## Displaying Item Images in Custom Cells
 Let's start this by going back to the `NewOrderViewController` and creating an array of items that utilizes out `Item` model to specify the title and image. This should be placed towards the top of the class file.
 
 ```swift
