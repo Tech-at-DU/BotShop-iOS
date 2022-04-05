@@ -117,7 +117,7 @@ Add a new method to the extension at the bottom of `PastOrderViewController`. Th
 ```swift
 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     print("selected!")
-    let nextVC: NewOrderViewController = NewOrderViewController()
+    let nextVC: OrderList = OrderList()
     nextVC.currentOrder = orders[indexPath.row]
     self.navigationController?.pushViewController(nextVC, animated: true)
 }
@@ -128,10 +128,10 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 You should now have an error that says:
 
 ```
-Value of type 'NewOrderViewController' has no member 'currentOrder'
+Value of type 'OrderList' has no member 'currentOrder'
 ```
 
-Let's go to the `NewOrderViewController.swift file` and add this towards the top of the class:
+Let's go to the `OrderList.swift file` and add this towards the top of the class:
 
 ```swift
 var currentOrder: Order!
