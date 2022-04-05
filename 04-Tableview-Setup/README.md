@@ -2,7 +2,7 @@
 
 Right now when the history tab brings us to an empty green page. We want to be able to see a list of dates that show the users past orders. We then want to be able to click on one of the cells and be brought to another page that shows us the list of all the bots that were bought during that order.
 
-# Creating a Custom TableView Cell
+## Creating a Custom TableView Cell
 
 Similar to how we built out the `collectionView`, let's first build out a custom `tableViewCell` for our `tableView` to use later on. Each `tableViewCell` will hold a label and image. Create a new file and name it `PastOrderCell.swift`
 
@@ -51,7 +51,7 @@ class PastOrderCell: UITableViewCell{
 
 We have a title and image within a `stackView`, just like how we set it up in the `collectionView`, only this stack view has a horizontal axis instead of a vertical one.
 
-## Constraining Title and Image to StackView
+### Constraining Title and Image to StackView
 
 As always we should create a setup function to constrain all our elements into place. Let's put this after the `override init` method.
 
@@ -77,7 +77,7 @@ Again, remember to call `setup()` in `override init` method or it won't be run!
 
 Now that we have the custom `tableViewCell` setup, let's create the `tableView` that will hold the cells.
 
-# Building Out The TableView
+## Building Out The TableView
 
 Navigate back to the `PastOrderViewController` class instantiate a `UITableView` object.
 
@@ -126,7 +126,7 @@ tableView.delegate = self
 tableView.dataSource = self
 ```
 
-## Constraining TableView
+### Constraining TableView
 Let's also create a function to set up the view for this page. This function will constrain the `tableView` to our screen.
 
 ```swift
