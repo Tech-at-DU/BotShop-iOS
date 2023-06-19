@@ -35,11 +35,7 @@ Find the `Main.storyboard` file on your Project Navigator.
 
 Right click on the file and delete it. Make sure to click `Move to Trash`.
 
-Now go to the root page of your project, look for the **Deployment Info** section, find the **Main Interface** dropdown section.
-
-![Deployment Section Img](../assets/deployment-info.png "Deployment Section")
-
-Highlight the text in the textfield that says **Main** and delete it. You should now have an empty field for Main Interface.
+Now  go to the "Build Settings" tab and search for the "UIKit Main Storyboard File Base Name" key. Then remove the key or set the value to empty.
 
 Lastly, lets go to your `Info.plist` file and press **Cmd + F** and find "Main" to reveal all instances.
 
