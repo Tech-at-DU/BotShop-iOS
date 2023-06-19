@@ -29,7 +29,7 @@ let collectionView: UICollectionView = {
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
     collectionView.translatesAutoresizingMaskIntoConstraints = false
 
-    return collectionView `collectionView`.
+    return collectionView
 }()
 ```
 
