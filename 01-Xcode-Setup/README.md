@@ -66,12 +66,6 @@ guard let _ = (scene as? UIWindowScene) else { return }
 Remove this line and replace it with the following: 
 
 ```swift
-func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions)
-```
-
-Update the body of the function with:
-
-```swift
 guard let windowScene = (scene as? UIWindowScene) else { return }
 
 window = UIWindow(frame: UIScreen.main.bounds)
